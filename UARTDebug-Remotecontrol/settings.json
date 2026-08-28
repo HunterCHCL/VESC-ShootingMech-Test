@@ -1,0 +1,34 @@
+{
+  "window": {
+    "x": 361,
+    "y": 219,
+    "w": 980,
+    "h": 760,
+    "maximized": false
+  },
+  "serial": {
+    "last_port": "",
+    "baud": 115200
+  },
+  "control": {
+    "period": 200
+  },
+  "vesc": {
+    "targets": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "enabled": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  }
+}
