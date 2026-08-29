@@ -1,3 +1,4 @@
+#include <string.h>
 #include "usart.h"
 #include "UARTDebug.h"
 
@@ -37,7 +38,13 @@ void UARTDebug_SendFrame(uint8_t *data, uint16_t len)
     if (len > UARTDebug_FRAME_MAX_LEN - 3) {
         return;
     }
-    uint8_t frame[UARTDebug_FRAME_MAX_LEN];
+    // static 缓冲区：HAL_UART_Transmit_DMA 非阻塞，函数返回后 DMA 仍在读取；
+    // 栈上局部数组会被后续调用覆盖导致发错数据，必须用持久缓冲区。
+    static uint8_t frame[UARTDebug_FRAME_MAX_LEN];
+    // 等待上一次 DMA 发送完成，避免覆盖仍在传输中的数据（仅 UART 任务调用，短暂阻塞可接受）
+    while (HAL_UART_GetState(&UARTDebug_PORT) == HAL_UART_STATE_BUSY_TX) {
+        osDelay(1);
+    }
     frame[0] = UARTDebug_FRAME_HEAD1;
     frame[1] = UARTDebug_FRAME_HEAD2;
     memcpy(&frame[2], data, len);
@@ -68,24 +75,24 @@ uint8_t UARTDebug_ProcessReceivedData(uint8_t *cmd,uint8_t *data,uint8_t *rx_dat
 void UARTDebug_UpdateVESC(uint8_t *data)
 {
     UARTDebug_last_cmd_time = HAL_GetTick();
-    memcpy(&vesc1_status.target_erpm, data, sizeof(float));
-    memcpy(&vesc2_status.target_erpm, data + sizeof(float), sizeof(float));
-    memcpy(&vesc3_status.target_erpm, data + 2 * sizeof(float), sizeof(float));
-    memcpy(&vesc4_status.target_erpm, data + 3 * sizeof(float), sizeof(float));
-    memcpy(&vesc5_status.target_erpm, data + 4 * sizeof(float), sizeof(float));
-    memcpy(&vesc6_status.target_erpm, data + 5 * sizeof(float), sizeof(float));
+    memcpy((uint8_t *)&vesc1_status.target_erpm, data, sizeof(float));
+    memcpy((uint8_t *)&vesc2_status.target_erpm, data + sizeof(float), sizeof(float));
+    memcpy((uint8_t *)&vesc3_status.target_erpm, data + 2 * sizeof(float), sizeof(float));
+    memcpy((uint8_t *)&vesc4_status.target_erpm, data + 3 * sizeof(float), sizeof(float));
+    memcpy((uint8_t *)&vesc5_status.target_erpm, data + 4 * sizeof(float), sizeof(float));
+    memcpy((uint8_t *)&vesc6_status.target_erpm, data + 5 * sizeof(float), sizeof(float));
 }
 
 void UARTDebug_SendVESCStatus(void)
 {
     uint8_t data[6 * sizeof(float)];
     taskENTER_CRITICAL();
-    memcpy(data, &vesc1_status.erpm, sizeof(float));
-    memcpy(data + sizeof(float), &vesc2_status.erpm, sizeof(float));
-    memcpy(data + 2 * sizeof(float), &vesc3_status.erpm, sizeof(float));
-    memcpy(data + 3 * sizeof(float), &vesc4_status.erpm, sizeof(float));
-    memcpy(data + 4 * sizeof(float), &vesc5_status.erpm, sizeof(float));
-    memcpy(data + 5 * sizeof(float), &vesc6_status.erpm, sizeof(float));
+    memcpy(data, (const uint8_t *)&vesc1_status.erpm, sizeof(float));
+    memcpy(data + sizeof(float), (const uint8_t *)&vesc2_status.erpm, sizeof(float));
+    memcpy(data + 2 * sizeof(float), (const uint8_t *)&vesc3_status.erpm, sizeof(float));
+    memcpy(data + 3 * sizeof(float), (const uint8_t *)&vesc4_status.erpm, sizeof(float));
+    memcpy(data + 4 * sizeof(float), (const uint8_t *)&vesc5_status.erpm, sizeof(float));
+    memcpy(data + 5 * sizeof(float), (const uint8_t *)&vesc6_status.erpm, sizeof(float));
     taskEXIT_CRITICAL();
     UARTDebug_SendFrame(data, sizeof(data));
 }

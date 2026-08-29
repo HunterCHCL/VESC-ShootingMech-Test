@@ -1,11 +1,12 @@
+#include <math.h>
 #include "VESC.h"
 
-VESC_Status vesc1_status;
-VESC_Status vesc2_status;
-VESC_Status vesc3_status;
-VESC_Status vesc4_status;
-VESC_Status vesc5_status;
-VESC_Status vesc6_status;
+VESC_Status vesc1_status = {0};
+VESC_Status vesc2_status = {0};
+VESC_Status vesc3_status = {0};
+VESC_Status vesc4_status = {0};
+VESC_Status vesc5_status = {0};
+VESC_Status vesc6_status = {0};
 
 void VESC_Init(void)
 {
@@ -23,6 +24,17 @@ void VESC_Init(void)
     sFilterConfig.SlaveStartFilterBank = 14;
 
     HAL_CAN_ConfigFilter(&VESC_CAN_PORT, &sFilterConfig);
+
+    /* 启动 CAN（离开初始化模式），并使能 RX FIFO0 消息挂起中断。
+     * 顺序必须为：Init -> ConfigFilter -> Start -> ActivateNotification。 */
+    if (HAL_CAN_Start(&VESC_CAN_PORT) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    if (HAL_CAN_ActivateNotification(&VESC_CAN_PORT, CAN_IT_RX_FIFO0_MSG_PENDING) != HAL_OK)
+    {
+        Error_Handler();
+    }
 }
 uint8_t can_transmit_eid(uint32_t id, const uint8_t *data, uint32_t len) {
 	CAN_TxHeaderTypeDef txHeader = {0};
@@ -225,6 +237,9 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 		case VESC_ID_MOTOR5:
 			VESC_can_read_status(&rxHeader.ExtId, rxData, &vesc5_status);
 			break;
+		case VESC_ID_MOTOR6:
+			VESC_can_read_status(&rxHeader.ExtId, rxData, &vesc6_status);
+			break;
 		default:
 			break;
 	}
@@ -248,21 +263,13 @@ void VESC_HALT(void)
 
 void VESC_ERPM_Ctrl(uint8_t VESC_ID,VESC_Status *vesc_status)
 {
-	float erpm;
-	float target_erpm;
-
-	taskENTER_CRITICAL();
-	erpm = vesc_status->erpm;
-	target_erpm = vesc_status->target_erpm;
-	taskEXIT_CRITICAL();
-
-	if(fabsf(erpm-target_erpm)>=VESC_ERPM_MAX_ERROR)
+	if(fabsf(vesc_status->target_erpm)>VESC_CTRL_MIN_ERPM)
 	{
-		VESC_can_set_rpm(VESC_ID, target_erpm);
+		VESC_can_set_rpm(VESC_ID, vesc_status->target_erpm);
 	}
 	else
 	{
-		VESC_can_set_current_brake(VESC_ID, VESC_BREAK_CURRENT);
+		VESC_can_set_current_brake(VESC_ID,VESC_BREAK_CURRENT);
 	}
 }
 

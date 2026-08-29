@@ -14,7 +14,7 @@ from PySide6.QtWidgets import (
 
 from .live_plot import COLORS, LivePlot
 
-VESC_NAMES = ["V1/L1", "V2/R1", "V3/L2", "V4/R2", "V5/L3", "V6/R3"]
+VESC_NAMES = ["V1/R1", "V2/R2", "V3/R3", "V4/F1", "V5/F2", "V6/F3"]
 
 
 def _fmt(v, decimals: int = 0) -> str:

@@ -13,15 +13,14 @@
 MCU -> PC 状态帧（UARTDebug_SendVESCStatus，每 100ms 发送一次）：
     [0xFA][0xAF][6 × float32 erpm][checksum]   —— 注意：不含命令字节
 
-⚠ 固件 off-by-one 说明（仅影响 MCU -> PC 方向）：
-    固件 UARTDebug_SendFrame 用 UARTDebug_SendData(frame, len + 2) 发送，
-    校验和字节会覆盖最后一个 payload 字节（即第 6 个浮点的最高字节）。
-    因此当前固件实际发出的状态帧是 [0xFA][0xAF][23 字节][checksum] = 26 字节，
-    其中第 6 路 erpm 数据损坏、不可信。
-    本解析器同时支持 26 字节（当前固件）与 27 字节（修复后）两种帧，靠校验和
-    自动判别；收到 26 字节帧时第 6 路解析结果为 None（显示「—」）。
-    建议固件修复：把发送改为 UARTDebug_SendData(frame, len + 3)，
-    并把校验和放在 frame[len + 2] 位置（循环 i < len + 2）。
+⚠ 兼容旧固件 off-by-one（仅影响 MCU -> PC 方向，当前固件已修复）：
+    旧版固件 UARTDebug_SendFrame 用 UARTDebug_SendData(frame, len + 2) 发送，
+    校验和字节会覆盖最后一个 payload 字节（即第 6 个浮点的最高字节），
+    实际发出 [0xFA][0xAF][23 字节][checksum] = 26 字节帧，第 6 路 erpm 损坏。
+    当前固件已改为 UARTDebug_SendData(frame, len + 3) = 27 字节帧
+    （校验和位于 frame[len + 2]），6 路数据完整。本解析器同时兼容 26 字节
+    （旧固件）与 27 字节两种帧，靠校验和自动判别；收到 26 字节帧时
+    第 6 路解析结果为 None（显示「—」）。
 """
 from __future__ import annotations
 
@@ -36,8 +35,8 @@ NUM_VESC = 6
 FRAME_MAX_LEN = 64  # 与固件 UARTDebug_FRAME_MAX_LEN 一致
 
 # 状态帧候选总长（2 头 + 数据 + 1 校验）：
-#   26 = 当前固件（23 数据字节，第 6 路损坏）
-#   27 = 修复后固件（24 数据字节，6 路完整）
+#   26 = 旧固件（23 数据字节，第 6 路损坏）
+#   27 = 当前固件（24 数据字节，6 路完整）
 #   28 = 含命令字节的帧（2 头 + 1 cmd + 24 数据 + 1 校验）
 _STATUS_LEN_CURRENT = 26
 _STATUS_LEN_FIXED = 27
@@ -74,7 +73,7 @@ def parse_status(frame: bytes) -> dict:
     """解析 MCU -> PC 状态帧。
 
     返回 {'type': 'status', 'erpm': [6 个 float | None]}。
-    26 字节帧（当前固件）下第 6 路为 None。
+    26 字节帧（旧固件）下第 6 路为 None。
     """
     total = len(frame)
     if total in (_STATUS_LEN_CURRENT, _STATUS_LEN_FIXED):

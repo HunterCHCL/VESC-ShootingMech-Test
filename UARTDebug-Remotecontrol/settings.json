@@ -1,17 +1,17 @@
 {
   "window": {
-    "x": 361,
-    "y": 219,
-    "w": 980,
-    "h": 760,
+    "x": 149,
+    "y": 173,
+    "w": 1290,
+    "h": 757,
     "maximized": false
   },
   "serial": {
-    "last_port": "",
+    "last_port": "COM9",
     "baud": 115200
   },
   "control": {
-    "period": 200
+    "period": 400
   },
   "vesc": {
     "targets": [

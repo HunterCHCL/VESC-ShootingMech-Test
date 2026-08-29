@@ -1,8 +1,8 @@
 """控制面板：六路 VESC 目标 erpm 设置 + 发送控制（持续发送 / 单次发送 / 急停）。
 
-布局按 3 级轮对（L1/R1、L2/R2、L3/R3）分组：
-    每级两行电机（L、R），每行 = 启用勾选 + 名称 + 目标 erpm + 实测 erpm；
-    每级尾部有「R 反向」「同步 L→R」快速按键。
+布局按 2 组 × 3 轮分组：
+    每组三行电机，每行 = 启用勾选 + 名称 + 目标 erpm + 实测 erpm；
+    每组尾部有「3轮同步」勾选框（默认勾选，整组目标保持一致）。
 
 发送语义：
     - targets() 对「未启用」的电机返回 0（不转），已启用的返回 spinbox 值。
@@ -18,11 +18,10 @@ from PySide6.QtWidgets import (
 
 from .. import config
 
-VESC_NAMES = ["V1/L1", "V2/R1", "V3/L2", "V4/R2", "V5/L3", "V6/R3"]
-PAIR_INFO = [  # (L 下标, R 下标, 对名)
-    (0, 1, "第 1 级 (L1/R1)"),
-    (2, 3, "第 2 级 (L2/R2)"),
-    (4, 5, "第 3 级 (L3/R3)"),
+VESC_NAMES = ["V1/R1", "V2/R2", "V3/R3", "V4/F1", "V5/F2", "V6/F3"]
+GROUP_INFO = [  # (组内电机下标, 组名)
+    ((0, 1, 2), "第 1 组 (V1/R1 · V2/R2 · V3/R3)"),
+    ((3, 4, 5), "第 2 组 (V4/F1 · V5/F2 · V6/F3)"),
 ]
 
 ERPM_MIN = -200000
@@ -77,20 +76,19 @@ class ControlPanel(QFrame):
         self._targets: list[QDoubleSpinBox] = []
         self._enabled: list[QCheckBox] = []
         self._readouts: list[QLabel] = []
-        self._rev_chk: list[QCheckBox] = []
-        self._sync_chk: list[QCheckBox] = []
+        self._group_sync_chk: list[QCheckBox] = []
 
         defaults_en = config.get_enabled()
         defaults_tg = config.get_targets()
 
         row = 1
-        for pair_idx, (li, ri, pair_name) in enumerate(PAIR_INFO):
-            ttl = QLabel(pair_name)
+        for group_idx, (indices, group_name) in enumerate(GROUP_INFO):
+            ttl = QLabel(group_name)
             ttl.setStyleSheet("font-weight:bold;color:#bbb;")
             grid.addWidget(ttl, row, 0, 1, 4)
             row += 1
 
-            for idx in (li, ri):
+            for idx in indices:
                 chk = QCheckBox()
                 chk.setChecked(defaults_en[idx])
                 chk.setToolTip(
@@ -102,6 +100,9 @@ class ControlPanel(QFrame):
                 spin.setSingleStep(500)
                 spin.setValue(defaults_tg[idx])
                 spin.setMinimumWidth(130)
+                spin.valueChanged.connect(
+                    lambda _v, g=group_idx, i=idx:
+                    self._on_motor_changed(g, i))
                 rd = QLabel("—")
                 rd.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
                 rd.setMinimumWidth(100)
@@ -115,26 +116,20 @@ class ControlPanel(QFrame):
                 self._readouts.append(rd)
                 row += 1
 
-            # 每级同步勾选：勾选后 R 目标自动跟随 L（配合「R 反向」取反）
-            rev = QCheckBox("R 反向")
-            sync = QCheckBox("同步 L→R")
+            # 3 轮同步勾选（默认勾选）：改任意一路，整组跟随
+            sync = QCheckBox("3轮同步")
             sync.setToolTip(
-                "勾选后 R 目标自动跟随 L 电机（改 L 即同步到 R）；\n"
-                "勾选「R 反向」则取相反数（适合左右轮对转）。\n"
-                "取消勾选后 R 可独立调节。")
+                "勾选后同组 3 路目标保持一致：改任意一路，其余两路自动跟随；\n"
+                "取消勾选后各轮可独立调节。")
             sync.toggled.connect(
-                lambda on, a=li, b=ri, p=pair_idx:
-                self._on_sync_toggled(on, a, b, p))
-            self._targets[li].valueChanged.connect(
-                lambda _v, a=li, b=ri, p=pair_idx:
-                self._on_l_changed(a, b, p))
+                lambda on, g=group_idx, m=indices[0]:
+                self._on_group_sync_toggled(on, g, m))
+            sync.setChecked(True)  # 默认勾选 -> 触发 toggled，整组对齐首轮值
             sync_row = QHBoxLayout()
             sync_row.addStretch(1)
-            sync_row.addWidget(rev)
             sync_row.addWidget(sync)
             grid.addLayout(sync_row, row, 0, 1, 4)
-            self._rev_chk.append(rev)
-            self._sync_chk.append(sync)
+            self._group_sync_chk.append(sync)
             row += 1
 
         # 便捷按钮
@@ -171,21 +166,21 @@ class ControlPanel(QFrame):
         self.spin_period.valueChanged.connect(config.set_period)
 
     # ---------------- 内部操作 ----------------
-    def _on_sync_toggled(self, on: bool, li: int, ri: int, pair_idx: int) -> None:
-        """勾选「同步 L→R」时立即把 R 同步到 L 当前值。"""
+    def _on_motor_changed(self, group_idx: int, changed_idx: int) -> None:
+        """任一路目标变化：若该组「3轮同步」勾选则整组跟随该路。"""
+        if self._group_sync_chk[group_idx].isChecked():
+            self._apply_group_sync(group_idx, changed_idx)
+
+    def _on_group_sync_toggled(self, on: bool, group_idx: int, master_idx: int) -> None:
+        """勾选「3轮同步」时立即按组首轮对齐整组。"""
         if on:
-            self._apply_sync(li, ri, pair_idx)
+            self._apply_group_sync(group_idx, master_idx)
 
-    def _on_l_changed(self, li: int, ri: int, pair_idx: int) -> None:
-        """L 目标变化时，若该对处于同步状态则自动更新 R。"""
-        if self._sync_chk[pair_idx].isChecked():
-            self._apply_sync(li, ri, pair_idx)
-
-    def _apply_sync(self, li: int, ri: int, pair_idx: int) -> None:
-        v = self._targets[li].value()
-        if self._rev_chk[pair_idx].isChecked():
-            v = -v
-        self._targets[ri].setValue(v)
+    def _apply_group_sync(self, group_idx: int, master_idx: int) -> None:
+        v = self._targets[master_idx].value()
+        for idx in GROUP_INFO[group_idx][0]:
+            if idx != master_idx:
+                self._targets[idx].setValue(v)
 
     def _set_all_enabled(self, on: bool) -> None:
         for chk in self._enabled:

@@ -7,17 +7,17 @@
 #define VESC_CAN_PORT hcan1
 #define VESC_CAN_FIFO CAN_RX_FIFO0
 
-#define VESC_ID_MOTOR1  0x01	//L1
-#define VESC_ID_MOTOR2  0x02	//R1
-#define VESC_ID_MOTOR3  0x03	//L2
-#define VESC_ID_MOTOR4  0x04	//R2
-#define VESC_ID_MOTOR5  0x05	//L3
-#define VESC_ID_MOTOR6  0x06	//R3
+#define VESC_ID_MOTOR1  0x01	//R1
+#define VESC_ID_MOTOR2  0x02	//R2
+#define VESC_ID_MOTOR3  0x03	//R3
+#define VESC_ID_MOTOR4  0x04	//F1
+#define VESC_ID_MOTOR5  0x05	//F2
+#define VESC_ID_MOTOR6  0x06	//F3
 
 #define VESC_CTRL_LOOP_PERIOD 50 //ms
 
 #define VESC_CTRL_MIN_ERPM 350.0f // erpm
-#define VESC_BREAK_CURRENT 0.5f // A
+#define VESC_BREAK_CURRENT 0.1f // A
 #define VESC_ERPM_MAX_ERROR 100
 
 typedef enum {
