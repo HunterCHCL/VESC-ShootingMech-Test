@@ -1,8 +1,8 @@
 {
   "window": {
-    "x": 149,
-    "y": 173,
-    "w": 1290,
+    "x": 371,
+    "y": 170,
+    "w": 1059,
     "h": 757,
     "maximized": false
   },
@@ -30,5 +30,10 @@
       true,
       true
     ]
+  },
+  "plot": {
+    "max_points": 100000,
+    "send_interval_ms": 20,
+    "show_x_axis": true
   }
 }

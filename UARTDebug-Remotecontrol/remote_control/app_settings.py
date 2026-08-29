@@ -9,7 +9,8 @@ exe 同级目录），用户可直接查看 / 手动修改 / 备份 / 迁移。
       "window":  { "x", "y", "w", "h", "maximized" },  # 主窗口位置/大小/最大化
       "serial":  { "last_port", "baud" },               # 遥控串口
       "control": { "period" },                          # 持续发送周期(ms)
-      "vesc":    { "targets": [6], "enabled": [6] }     # 六路目标 erpm 与启用
+      "vesc":    { "targets": [6], "enabled": [6] },    # 六路目标 erpm 与启用
+      "plot":    { "max_points", "send_interval_ms", "show_x_axis" }  # 曲线参数
     }
 """
 from __future__ import annotations
@@ -36,6 +37,8 @@ DEFAULTS: dict[str, dict] = {
     "serial": {"last_port": "", "baud": 115200},
     "control": {"period": 200},
     "vesc": {"targets": [0.0] * 6, "enabled": [True] * 6},
+    "plot": {"max_points": 100000, "send_interval_ms": 100,
+             "show_x_axis": True},
 }
 
 

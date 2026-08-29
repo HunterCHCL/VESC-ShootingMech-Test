@@ -13,6 +13,7 @@ from .app_settings import app_settings
 from .serial_link import SerialLink, available_ports
 from .ui.control_panel import ControlPanel
 from .ui.monitor_panel import MonitorPanel
+from .ui.settings_panel import SettingsPanel
 
 BAUDS = ["115200", "9600", "19200", "38400", "57600",
          "230400", "460800", "921600"]
@@ -39,6 +40,7 @@ class MainWindow(QMainWindow):
         # 面板
         self.control = ControlPanel()
         self.monitor = MonitorPanel()
+        self.settings = SettingsPanel()
         self._build_serial_bar()
 
         # 控制页
@@ -52,11 +54,25 @@ class MainWindow(QMainWindow):
         mv = QVBoxLayout(monitor_tab)
         mv.addWidget(self.monitor, 1)
 
+        # 设置页
+        settings_tab = QWidget()
+        sv = QVBoxLayout(settings_tab)
+        sv.addWidget(self.settings, 1)
+
         self.tabs = QTabWidget()
         self.tabs.addTab(control_tab, "控制")
         self.tabs.addTab(monitor_tab, "数据监听")
+        self.tabs.addTab(settings_tab, "设置")
         self.tabs.currentChanged.connect(self._on_tab_changed)
         self.setCentralWidget(self.tabs)
+
+        # 设置 -> 曲线联动
+        self.settings.spin_max_points.valueChanged.connect(
+            self.monitor.plot.set_max_points)
+        self.settings.spin_send_interval.valueChanged.connect(
+            self.monitor.plot.set_sample_interval)
+        self.settings.chk_show_x_axis.toggled.connect(
+            self.monitor.plot.set_show_x_axis)
 
         # 信号
         self.link.frame_received.connect(self._on_frame)
@@ -222,6 +238,8 @@ class MainWindow(QMainWindow):
             erpm = frame.get("erpm") or []
             self.control.set_readouts(erpm)
             self.monitor.update_erpm(erpm)
+            # 同步设定转速参考线（虚线）
+            self.monitor.set_targets(self.control.raw_targets())
 
     # ---------- 工具 ----------
     def _try_send(self, frame: bytes) -> None:

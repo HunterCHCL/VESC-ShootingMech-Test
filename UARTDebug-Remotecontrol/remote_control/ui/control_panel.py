@@ -77,6 +77,8 @@ class ControlPanel(QFrame):
         self._enabled: list[QCheckBox] = []
         self._readouts: list[QLabel] = []
         self._group_sync_chk: list[QCheckBox] = []
+        self._forward_only: list[QCheckBox] = []
+        self._wheel_steps: list[QSpinBox] = []
 
         defaults_en = config.get_enabled()
         defaults_tg = config.get_targets()
@@ -116,6 +118,23 @@ class ControlPanel(QFrame):
                 self._readouts.append(rd)
                 row += 1
 
+            # 滚轮步进 + 仅限正向 + 3轮同步（前两者位于 3轮同步 左侧）
+            wstep = QSpinBox()
+            wstep.setRange(1, 100000)
+            wstep.setValue(500)
+            wstep.setSuffix(" rpm")
+            wstep.setToolTip("滚轮每格调整的目标 erpm 步进值。")
+            wstep.valueChanged.connect(
+                lambda v, g=group_idx: self._on_wheel_step_changed(v, g))
+
+            fwd = QCheckBox("仅限正向")
+            fwd.setToolTip(
+                "勾选后滚轮（及手动输入）不会把目标调成负数，最低为 0；\n"
+                "取消勾选后允许负值。")
+            fwd.toggled.connect(
+                lambda on, g=group_idx: self._on_forward_only_toggled(on, g))
+            fwd.setChecked(True)  # 默认勾选 -> 触发 toggled，把该组下限钳到 0
+
             # 3 轮同步勾选（默认勾选）：改任意一路，整组跟随
             sync = QCheckBox("3轮同步")
             sync.setToolTip(
@@ -126,10 +145,15 @@ class ControlPanel(QFrame):
                 self._on_group_sync_toggled(on, g, m))
             sync.setChecked(True)  # 默认勾选 -> 触发 toggled，整组对齐首轮值
             sync_row = QHBoxLayout()
+            sync_row.addWidget(QLabel("滚轮步进:"))
+            sync_row.addWidget(wstep)
+            sync_row.addWidget(fwd)
             sync_row.addStretch(1)
             sync_row.addWidget(sync)
             grid.addLayout(sync_row, row, 0, 1, 4)
             self._group_sync_chk.append(sync)
+            self._forward_only.append(fwd)
+            self._wheel_steps.append(wstep)
             row += 1
 
         # 便捷按钮
@@ -181,6 +205,16 @@ class ControlPanel(QFrame):
         for idx in GROUP_INFO[group_idx][0]:
             if idx != master_idx:
                 self._targets[idx].setValue(v)
+
+    def _on_forward_only_toggled(self, on: bool, group_idx: int) -> None:
+        """仅限正向：勾选时该组 spinbox 下限钳到 0，滚轮/输入不可为负。"""
+        for idx in GROUP_INFO[group_idx][0]:
+            self._targets[idx].setMinimum(0 if on else ERPM_MIN)
+
+    def _on_wheel_step_changed(self, step: int, group_idx: int) -> None:
+        """滚轮步进：更新该组 spinbox 的滚轮单步值。"""
+        for idx in GROUP_INFO[group_idx][0]:
+            self._targets[idx].setSingleStep(step)
 
     def _set_all_enabled(self, on: bool) -> None:
         for chk in self._enabled:

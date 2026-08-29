@@ -54,6 +54,10 @@ class MonitorPanel(QFrame):
 
         # 实时曲线
         self.plot = LivePlot(6, VESC_NAMES)
+        hint = QLabel(
+            "拖拽平移（左右=时间轴，上下=数值）· 滚轮缩放 Y · "
+            "Ctrl+滚轮缩放 X · 双击复位；虚线为设定转速")
+        hint.setStyleSheet("color:#888;font-size:11px;")
 
         # 滚动日志
         self.btn_clear = QPushButton("清空")
@@ -68,6 +72,7 @@ class MonitorPanel(QFrame):
 
         lay = QVBoxLayout(self)
         lay.addLayout(cell)
+        lay.addWidget(hint)
         lay.addWidget(self.plot, 1)
         lay.addLayout(log_row)
         lay.addWidget(self.log, 1)
@@ -80,6 +85,10 @@ class MonitorPanel(QFrame):
             lbl.setText(_fmt(v))
         self.plot.push(erpm)
         self.log.appendPlainText(",".join(_fmt(v) for v in erpm))
+
+    def set_targets(self, targets: list) -> None:
+        """更新曲线上的设定转速参考线（来自控制页目标值）。"""
+        self.plot.set_targets(targets)
 
     def clear(self) -> None:
         self.plot.clear()

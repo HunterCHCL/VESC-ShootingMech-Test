@@ -51,5 +51,32 @@ def set_enabled(values: list[bool]) -> None:
     app_settings.set_no_save("vesc", "enabled", [bool(x) for x in values])
 
 
+def get_max_points() -> int:
+    """数据监测曲线内存点数（每通道保留的最大采样数，超出自动 GC）。"""
+    return int(app_settings.get("plot", "max_points", 100000))
+
+
+def set_max_points(n: int) -> None:
+    app_settings.set("plot", "max_points", int(n))
+
+
+def get_send_interval_ms() -> int:
+    """MCU 信息（状态帧）发送周期，单位 ms；决定 X 轴每采样点对应时间。"""
+    return int(app_settings.get("plot", "send_interval_ms", 100))
+
+
+def set_send_interval_ms(ms: int) -> None:
+    app_settings.set("plot", "send_interval_ms", int(ms))
+
+
+def get_show_x_axis() -> bool:
+    """是否在曲线底部显示 X 轴（相对时间刻度与竖向网格）。"""
+    return bool(app_settings.get("plot", "show_x_axis", True))
+
+
+def set_show_x_axis(on: bool) -> None:
+    app_settings.set("plot", "show_x_axis", bool(on))
+
+
 def save() -> None:
     app_settings.save()
