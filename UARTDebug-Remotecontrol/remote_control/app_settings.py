@@ -8,9 +8,10 @@ exe 同级目录），用户可直接查看 / 手动修改 / 备份 / 迁移。
     {
       "window":  { "x", "y", "w", "h", "maximized" },  # 主窗口位置/大小/最大化
       "serial":  { "last_port", "baud" },               # 遥控串口
-      "control": { "period" },                          # 持续发送周期(ms)
+      "control": { "period", "wheel_step[2]", "forward_only[2]", "sync[2]" },
       "vesc":    { "targets": [6], "enabled": [6] },    # 六路目标 erpm 与启用
-      "plot":    { "max_points", "send_interval_ms", "show_x_axis" }  # 曲线参数
+      "plot":    { "max_points", "send_interval_ms", "show_x_axis",
+                    "top_splitter_sizes", "main_splitter_sizes" }
     }
 """
 from __future__ import annotations
@@ -35,10 +36,15 @@ def default_file() -> str:
 DEFAULTS: dict[str, dict] = {
     "window": {"x": None, "y": None, "w": 980, "h": 760, "maximized": False},
     "serial": {"last_port": "", "baud": 115200},
-    "control": {"period": 200},
+    "control": {"period": 200,
+                "wheel_step": [500, 500],
+                "forward_only": [True, True],
+                "sync": [True, True]},
     "vesc": {"targets": [0.0] * 6, "enabled": [True] * 6},
     "plot": {"max_points": 100000, "send_interval_ms": 100,
-             "show_x_axis": True},
+             "show_x_axis": True,
+             "top_splitter_sizes": [210, 700],
+             "main_splitter_sizes": [420, 200]},
 }
 
 

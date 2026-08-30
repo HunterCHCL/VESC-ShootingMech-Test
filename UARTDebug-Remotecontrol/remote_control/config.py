@@ -33,6 +33,51 @@ def set_period(ms: int) -> None:
     app_settings.set("control", "period", ms)
 
 
+# ---- 控制页分组设置（滚轮步进 / 仅限正向 / 3轮同步） ----
+def get_group_wheel_steps() -> list[int]:
+    """各组滚轮步进值（QSpinBox）。"""
+    return [int(x) for x in app_settings.get("control", "wheel_step", [500, 500])]
+
+
+def set_group_wheel_steps(values: list[int]) -> None:
+    app_settings.set("control", "wheel_step", [int(x) for x in values])
+
+
+def get_group_forward_only() -> list[bool]:
+    """各组「仅限正向」勾选状态。"""
+    return [bool(x) for x in app_settings.get("control", "forward_only", [True, True])]
+
+
+def set_group_forward_only(values: list[bool]) -> None:
+    app_settings.set("control", "forward_only", [bool(x) for x in values])
+
+
+def get_group_sync() -> list[bool]:
+    """各组「3轮同步」勾选状态。"""
+    return [bool(x) for x in app_settings.get("control", "sync", [True, True])]
+
+
+def set_group_sync(values: list[bool]) -> None:
+    app_settings.set("control", "sync", [bool(x) for x in values])
+
+
+# ---- 数据监听页布局（分隔条尺寸；拖动中只写内存，关闭时统一落盘） ----
+def get_top_splitter_sizes() -> list[int]:
+    return [int(x) for x in app_settings.get("plot", "top_splitter_sizes", [210, 700])]
+
+
+def set_top_splitter_sizes(values: list[int]) -> None:
+    app_settings.set_no_save("plot", "top_splitter_sizes", [int(x) for x in values])
+
+
+def get_main_splitter_sizes() -> list[int]:
+    return [int(x) for x in app_settings.get("plot", "main_splitter_sizes", [420, 200])]
+
+
+def set_main_splitter_sizes(values: list[int]) -> None:
+    app_settings.set_no_save("plot", "main_splitter_sizes", [int(x) for x in values])
+
+
 def get_targets() -> list[float]:
     """六路目标 erpm（原始 spinbox 值）。"""
     return [float(x) for x in app_settings.get("vesc", "targets", [0.0] * 6)]

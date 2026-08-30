@@ -83,6 +83,19 @@ class ControlPanel(QFrame):
         defaults_en = config.get_enabled()
         defaults_tg = config.get_targets()
 
+        # 分组设置（滚轮步进 / 仅限正向 / 3轮同步）——持久化恢复
+        _wheel_cfg = list(config.get_group_wheel_steps())
+        _fwd_cfg = list(config.get_group_forward_only())
+        _sync_cfg = list(config.get_group_sync())
+        _n_groups = len(GROUP_INFO)
+        while len(_wheel_cfg) < _n_groups:
+            _wheel_cfg.append(500)
+        while len(_fwd_cfg) < _n_groups:
+            _fwd_cfg.append(True)
+        while len(_sync_cfg) < _n_groups:
+            _sync_cfg.append(True)
+        self._loading = True  # 构造期间不触发持久化保存
+
         row = 1
         for group_idx, (indices, group_name) in enumerate(GROUP_INFO):
             ttl = QLabel(group_name)
@@ -121,7 +134,7 @@ class ControlPanel(QFrame):
             # 滚轮步进 + 仅限正向 + 3轮同步（前两者位于 3轮同步 左侧）
             wstep = QSpinBox()
             wstep.setRange(1, 100000)
-            wstep.setValue(500)
+            wstep.setValue(_wheel_cfg[group_idx])
             wstep.setSuffix(" rpm")
             wstep.setToolTip("滚轮每格调整的目标 erpm 步进值。")
             wstep.valueChanged.connect(
@@ -133,7 +146,7 @@ class ControlPanel(QFrame):
                 "取消勾选后允许负值。")
             fwd.toggled.connect(
                 lambda on, g=group_idx: self._on_forward_only_toggled(on, g))
-            fwd.setChecked(True)  # 默认勾选 -> 触发 toggled，把该组下限钳到 0
+            fwd.setChecked(_fwd_cfg[group_idx])  # -> 触发 toggled，按配置钳下限
 
             # 3 轮同步勾选（默认勾选）：改任意一路，整组跟随
             sync = QCheckBox("3轮同步")
@@ -143,7 +156,7 @@ class ControlPanel(QFrame):
             sync.toggled.connect(
                 lambda on, g=group_idx, m=indices[0]:
                 self._on_group_sync_toggled(on, g, m))
-            sync.setChecked(True)  # 默认勾选 -> 触发 toggled，整组对齐首轮值
+            sync.setChecked(_sync_cfg[group_idx])  # -> 触发 toggled，整组对齐首轮值
             sync_row = QHBoxLayout()
             sync_row.addWidget(QLabel("滚轮步进:"))
             sync_row.addWidget(wstep)
@@ -189,6 +202,8 @@ class ControlPanel(QFrame):
         self.btn_all_zero.clicked.connect(self._set_all_zero)
         self.spin_period.valueChanged.connect(config.set_period)
 
+        self._loading = False  # 构造完成，后续改动会持久化
+
     # ---------------- 内部操作 ----------------
     def _on_motor_changed(self, group_idx: int, changed_idx: int) -> None:
         """任一路目标变化：若该组「3轮同步」勾选则整组跟随该路。"""
@@ -199,6 +214,8 @@ class ControlPanel(QFrame):
         """勾选「3轮同步」时立即按组首轮对齐整组。"""
         if on:
             self._apply_group_sync(group_idx, master_idx)
+        if not self._loading:
+            self._save_group_settings()
 
     def _apply_group_sync(self, group_idx: int, master_idx: int) -> None:
         v = self._targets[master_idx].value()
@@ -210,11 +227,22 @@ class ControlPanel(QFrame):
         """仅限正向：勾选时该组 spinbox 下限钳到 0，滚轮/输入不可为负。"""
         for idx in GROUP_INFO[group_idx][0]:
             self._targets[idx].setMinimum(0 if on else ERPM_MIN)
+        if not self._loading:
+            self._save_group_settings()
 
     def _on_wheel_step_changed(self, step: int, group_idx: int) -> None:
         """滚轮步进：更新该组 spinbox 的滚轮单步值。"""
         for idx in GROUP_INFO[group_idx][0]:
             self._targets[idx].setSingleStep(step)
+        if not self._loading:
+            self._save_group_settings()
+
+    def _save_group_settings(self) -> None:
+        """把各组滚轮步进 / 仅限正向 / 3轮同步写入 settings.json。"""
+        config.set_group_wheel_steps([s.value() for s in self._wheel_steps])
+        config.set_group_forward_only(
+            [c.isChecked() for c in self._forward_only])
+        config.set_group_sync([c.isChecked() for c in self._group_sync_chk])
 
     def _set_all_enabled(self, on: bool) -> None:
         for chk in self._enabled:

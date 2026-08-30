@@ -1,5 +1,7 @@
-"""数据监听页：六路实时 erpm 大字 + 实时曲线 + 滚动日志。
+"""数据监听页：六路实时 erpm 读数（左上）+ 实时曲线（右上）+ 滚动日志（下）。
 
+上半部分为左右布局：左侧紧凑读数、右侧实时曲线，二者之间用可拖动分隔条；
+上半区域与底部日志之间也用可拖动分隔条，三个区域可按需缩放。
 数据来源：MCU 每 100ms 回传的状态帧（6 × float32 erpm）。
 """
 from __future__ import annotations
@@ -9,12 +11,19 @@ import math
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QFrame, QGridLayout, QHBoxLayout, QLabel, QPlainTextEdit, QPushButton,
-    QVBoxLayout,
+    QSplitter, QVBoxLayout, QWidget,
 )
 
+from .. import config
 from .live_plot import COLORS, LivePlot
+from .plot_legend import PlotLegend
 
 VESC_NAMES = ["V1/R1", "V2/R2", "V3/R3", "V4/F1", "V5/F2", "V6/F3"]
+
+_SPLITTER_STYLE = (
+    "QSplitter::handle { background:#3a3a3a; } "
+    "QSplitter::handle:hover { background:#4a6fa5; }"
+)
 
 
 def _fmt(v, decimals: int = 0) -> str:
@@ -29,37 +38,61 @@ class MonitorPanel(QFrame):
         super().__init__(parent)
         self.setFrameShape(QFrame.StyledPanel)
 
-        # 六路大字
-        cell = QGridLayout()
-        cell.setHorizontalSpacing(20)
+        # ---- 左上：六路实时读数（紧凑） ----
+        readouts = QWidget()
+        readouts.setMinimumWidth(190)
+        cell = QGridLayout(readouts)
+        cell.setHorizontalSpacing(12)
+        cell.setVerticalSpacing(4)
+        cell.setContentsMargins(8, 8, 8, 8)
         self._labels: list[QLabel] = []
         for i in range(6):
             name = QLabel(VESC_NAMES[i])
             name.setAlignment(Qt.AlignCenter)
             name.setStyleSheet(
-                f"font-weight:bold;font-size:15px;color:{COLORS[i]};")
+                f"font-weight:bold;font-size:11px;color:{COLORS[i]};")
             val = QLabel("—")
             val.setAlignment(Qt.AlignCenter)
             val.setStyleSheet(
-                "font-size:28px;font-weight:bold;color:#ecf0f1;"
+                "font-size:17px;font-weight:bold;color:#ecf0f1;"
                 "font-family:Consolas;")
-            val.setMinimumHeight(56)
-            col = i % 3
-            row = (i // 3) * 2
+            val.setMinimumHeight(30)
+            col = i % 2
+            row = (i // 2) * 2
             cell.addWidget(name, row, col)
             cell.addWidget(val, row + 1, col)
             self._labels.append(val)
-        for i in range(3):
+        for i in range(2):
             cell.setColumnStretch(i, 1)
 
-        # 实时曲线
+        # ---- 右上：实时曲线 + 可点击图例 ----
         self.plot = LivePlot(6, VESC_NAMES)
         hint = QLabel(
             "拖拽平移（左右=时间轴，上下=数值）· 滚轮缩放 Y · "
             "Ctrl+滚轮缩放 X · 双击复位；虚线为设定转速")
         hint.setStyleSheet("color:#888;font-size:11px;")
+        self.legend = PlotLegend(VESC_NAMES)
+        self.legend.item_visible_changed.connect(self.plot.set_channel_visible)
+        self.legend.item_highlight_changed.connect(self._on_legend_highlight)
+        right = QWidget()
+        rv = QVBoxLayout(right)
+        rv.setContentsMargins(0, 0, 0, 0)
+        rv.addWidget(hint)
+        rv.addWidget(self.plot, 1)
+        rv.addWidget(self.legend, 0)
 
-        # 滚动日志
+        # ---- 上半部分：左右分栏（读数 | 曲线），可拖动分隔条 ----
+        self.top_splitter = QSplitter(Qt.Horizontal)
+        self.top_splitter.addWidget(readouts)
+        self.top_splitter.addWidget(right)
+        self.top_splitter.setStretchFactor(0, 0)
+        self.top_splitter.setStretchFactor(1, 1)
+        self.top_splitter.setSizes(config.get_top_splitter_sizes())
+        self.top_splitter.setHandleWidth(6)
+        self.top_splitter.setStyleSheet(_SPLITTER_STYLE)
+        self.top_splitter.splitterMoved.connect(self._save_splitter_sizes)
+
+        # ---- 底部：滚动日志 ----
         self.btn_clear = QPushButton("清空")
         self.log = QPlainTextEdit()
         self.log.setReadOnly(True)
@@ -69,18 +102,31 @@ class MonitorPanel(QFrame):
         log_row.addWidget(QLabel("最近接收 (erpm×6):"))
         log_row.addStretch(1)
         log_row.addWidget(self.btn_clear)
+        log_panel = QWidget()
+        lv = QVBoxLayout(log_panel)
+        lv.setContentsMargins(0, 0, 0, 0)
+        lv.addLayout(log_row)
+        lv.addWidget(self.log, 1)
+
+        # ---- 整体：上下分栏（上半 | 日志），可拖动分隔条 ----
+        self.main_splitter = QSplitter(Qt.Vertical)
+        self.main_splitter.addWidget(self.top_splitter)
+        self.main_splitter.addWidget(log_panel)
+        self.main_splitter.setStretchFactor(0, 3)
+        self.main_splitter.setStretchFactor(1, 1)
+        self.main_splitter.setSizes(config.get_main_splitter_sizes())
+        self.main_splitter.setHandleWidth(6)
+        self.main_splitter.setStyleSheet(_SPLITTER_STYLE)
+        self.main_splitter.splitterMoved.connect(self._save_splitter_sizes)
 
         lay = QVBoxLayout(self)
-        lay.addLayout(cell)
-        lay.addWidget(hint)
-        lay.addWidget(self.plot, 1)
-        lay.addLayout(log_row)
-        lay.addWidget(self.log, 1)
+        lay.setContentsMargins(0, 0, 0, 0)
+        lay.addWidget(self.main_splitter, 1)
 
         self.btn_clear.clicked.connect(self.clear)
 
     def update_erpm(self, erpm: list) -> None:
-        """刷新大字 + 追加曲线与日志。"""
+        """刷新读数 + 追加曲线与日志。"""
         for lbl, v in zip(self._labels, erpm):
             lbl.setText(_fmt(v))
         self.plot.push(erpm)
@@ -90,8 +136,18 @@ class MonitorPanel(QFrame):
         """更新曲线上的设定转速参考线（来自控制页目标值）。"""
         self.plot.set_targets(targets)
 
+    def _on_legend_highlight(self, index: int, on: bool) -> None:
+        """图例右键：突出显示（置顶）该电机，-1 表示取消。"""
+        self.plot.set_highlight(index if on else -1)
+
+    def _save_splitter_sizes(self, *_args) -> None:
+        """分隔条拖动中只更新内存，关闭窗口时统一写盘。"""
+        config.set_top_splitter_sizes(list(self.top_splitter.sizes()))
+        config.set_main_splitter_sizes(list(self.main_splitter.sizes()))
+
     def clear(self) -> None:
         self.plot.clear()
         self.log.clear()
         for lbl in self._labels:
             lbl.setText("—")
+

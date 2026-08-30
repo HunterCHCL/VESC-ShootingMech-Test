@@ -69,6 +69,8 @@ class LivePlot(QWidget):
         self._sample_interval_s = max(
             0.01, config.get_send_interval_ms() / 1000.0)
         self._show_x_axis = config.get_show_x_axis()
+        self._visible = [True] * self._channels   # 每通道是否显示（图例左键）
+        self._highlight = -1                      # 突出显示的通道索引（-1=无）
 
         # 视图状态
         self._follow = True             # 是否自动跟随最新数据
@@ -143,6 +145,17 @@ class LivePlot(QWidget):
         self._show_x_axis = bool(on)
         self.update()
 
+    def set_channel_visible(self, index: int, on: bool) -> None:
+        """图例左键：开关某电机的显示（曲线与设定转速虚线一起）。"""
+        if 0 <= index < self._channels:
+            self._visible[index] = bool(on)
+            self.update()
+
+    def set_highlight(self, index: int) -> None:
+        """设置突出显示的电机（渲染置顶）；-1 表示取消。"""
+        self._highlight = index if 0 <= index < self._channels else -1
+        self.update()
+
     def clear(self) -> None:
         for d in self._data:
             d.clear()
@@ -165,7 +178,7 @@ class LivePlot(QWidget):
         w, h = self.width(), self.height()
         margin = 6
         axis_w = 58       # 左侧 Y 轴标签宽度
-        legend_h = 16
+        legend_h = 0      # 图例已移出到控件外部单独一行
         x_axis_h = 18     # 底部 X 轴标签高度
         return QRectF(
             margin + axis_w, margin,
@@ -247,10 +260,14 @@ class LivePlot(QWidget):
 
         self._draw_grid(p, plot, y_lo, y_hi, start, end)
         self._draw_target_lines(p, plot, y_lo, y_hi)
-        for c in range(self._channels):
+        # 曲线：先画普通（可见且非突出）通道，最后画突出显示的通道（置顶）
+        order = [c for c in range(self._channels)
+                 if self._visible[c] and c != self._highlight]
+        if self._highlight >= 0 and self._visible[self._highlight]:
+            order.append(self._highlight)
+        for c in order:
             self._draw_channel(p, c, start, end, plot, y_lo, y_hi)
         self._draw_axis_labels(p, plot, y_lo, y_hi, start, end)
-        self._draw_legend(p, plot)
         p.end()
 
     def _draw_grid(self, p, plot, y_lo, y_hi, start, end) -> None:
@@ -279,8 +296,10 @@ class LivePlot(QWidget):
             p.drawLine(int(plot.left()), int(zy), int(plot.right()), int(zy))
 
     def _draw_target_lines(self, p, plot, y_lo, y_hi) -> None:
-        """设定转速：每通道同色虚线、半透明水平线。"""
+        """设定转速：每通道同色虚线、半透明水平线（隐藏通道不画）。"""
         for c in range(self._channels):
+            if not self._visible[c]:
+                continue
             t = self._targets[c]
             if t is None:
                 continue
@@ -373,17 +392,6 @@ class LivePlot(QWidget):
                 p.drawText(QRectF(x - 30, plot.bottom() + 4, 60, 14),
                            Qt.AlignHCenter | Qt.AlignVCenter, text)
                 t_s += step_s
-
-    def _draw_legend(self, p, plot) -> None:
-        font = p.font()
-        font.setPointSize(8)
-        p.setFont(font)
-        x = plot.left()
-        for c in range(self._channels):
-            p.setPen(QPen(QColor(COLORS[c % len(COLORS)]), 1))
-            p.drawText(QRectF(x, plot.bottom() + 20, 84, 16),
-                       Qt.AlignLeft | Qt.AlignVCenter, self._names[c])
-            x += 86
 
     # ---------------- 交互 ----------------
     def mousePressEvent(self, event) -> None:

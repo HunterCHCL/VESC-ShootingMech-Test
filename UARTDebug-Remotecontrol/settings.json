@@ -1,7 +1,7 @@
 {
   "window": {
-    "x": 371,
-    "y": 170,
+    "x": 408,
+    "y": 213,
     "w": 1059,
     "h": 757,
     "maximized": false
@@ -11,7 +11,19 @@
     "baud": 115200
   },
   "control": {
-    "period": 400
+    "period": 400,
+    "wheel_step": [
+      500,
+      500
+    ],
+    "forward_only": [
+      true,
+      true
+    ],
+    "sync": [
+      true,
+      true
+    ]
   },
   "vesc": {
     "targets": [
@@ -34,6 +46,14 @@
   "plot": {
     "max_points": 100000,
     "send_interval_ms": 20,
-    "show_x_axis": true
+    "show_x_axis": true,
+    "top_splitter_sizes": [
+      190,
+      835
+    ],
+    "main_splitter_sizes": [
+      533,
+      167
+    ]
   }
 }
