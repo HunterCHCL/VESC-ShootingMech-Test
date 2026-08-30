@@ -404,7 +404,7 @@ class LivePlot(QWidget):
             self._drag_auto_y = self._auto_y
             self._drag_base_lo = self._y_lo
             self._drag_base_hi = self._y_hi
-            self._follow = False
+            # 注意：不在按下时关闭追踪——由拖动方向/位置决定是否继续跟随最新
             self.setCursor(Qt.ClosedHandCursor)
             event.accept()
 
@@ -413,10 +413,22 @@ class LivePlot(QWidget):
             return
         x = event.position().x()
         y = event.position().y()
-        # 水平分量：平移时间轴
-        self._view_end_abs = int(
-            self._drag_end_abs - (x - self._drag_px) * self._points_per_px)
-        # 垂直分量：平移 Y 轴（超过阈值才启动，避免纯横向拖动冻结自动适配）
+        # 水平分量：向右拖 -> 回看历史；向左拖 -> 向最新
+        dx = x - self._drag_px
+        if abs(dx) >= 3:
+            tentative = int(self._drag_end_abs - dx * self._points_per_px)
+            max_end = self._total - 1
+            if tentative >= max_end:
+                # 拖回最新：恢复自动追踪并钉在最新，重设拖拽基准避免回跳
+                self._follow = True
+                self._view_end_abs = max_end
+                self._drag_end_abs = max_end
+                self._drag_px = x
+            else:
+                # 明显回看历史：停止追踪
+                self._follow = False
+                self._view_end_abs = tentative
+        # 垂直分量：平移 Y 轴（纯上下拖动不影响 X 追踪状态）
         dy = y - self._drag_py
         if not self._y_pan_started and abs(dy) >= 3:
             self._y_pan_started = True
