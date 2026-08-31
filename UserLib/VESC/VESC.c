@@ -263,7 +263,7 @@ void VESC_HALT(void)
 
 void VESC_ERPM_Ctrl(uint8_t VESC_ID,VESC_Status *vesc_status)
 {
-	if(fabsf(vesc_status->target_erpm)>VESC_CTRL_MIN_ERPM)
+	if(fabsf(vesc_status->target_erpm)>VESC_CTRL_MIN_ERPM && fabs(vesc_status->target_erpm)<VESC_MAX_ERPM)
 	{
 		VESC_can_set_rpm(VESC_ID, vesc_status->target_erpm);
 	}

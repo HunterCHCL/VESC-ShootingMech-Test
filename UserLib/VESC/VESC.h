@@ -14,6 +14,8 @@
 #define VESC_ID_MOTOR5  0x05	//F2
 #define VESC_ID_MOTOR6  0x06	//F3
 
+#define VESC_MAX_ERPM 35000.0f
+
 #define VESC_CTRL_LOOP_PERIOD 50 //ms
 
 #define VESC_CTRL_MIN_ERPM 350.0f // erpm
