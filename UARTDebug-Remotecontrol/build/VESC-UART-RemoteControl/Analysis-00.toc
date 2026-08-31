@@ -2,11 +2,11 @@
   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\main.py'],
  ['D:\\RM Main softwares\\Keil5 '
   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol'],
- [],
- [('d:\\RM Main softwares\\Keil5 '
+ ['serial.tools.list_ports_windows'],
+ [('D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks',
    -1000),
-  ('d:\\RM Main softwares\\Keil5 '
+  ('D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib',
    -1000)],
  {},
@@ -32,7 +32,7 @@
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\main.py',
    'PYSOURCE')],
  [('_pyi_rth_utils.qt',
-   'd:\\RM Main softwares\\Keil5 '
+   'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PyInstaller\\fake-modules\\_pyi_rth_utils\\qt.py',
    'PYMODULE'),
   ('importlib',
@@ -408,8 +408,91 @@
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\importlib\\_bootstrap.py',
    'PYMODULE'),
   ('_pyi_rth_utils',
-   'd:\\RM Main softwares\\Keil5 '
+   'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PyInstaller\\fake-modules\\_pyi_rth_utils\\__init__.py',
+   'PYMODULE'),
+  ('serial.tools.list_ports_windows',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports_windows.py',
+   'PYMODULE'),
+  ('serial.tools.list_ports_common',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports_common.py',
+   'PYMODULE'),
+  ('serial.tools',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\__init__.py',
+   'PYMODULE'),
+  ('serial.tools.list_ports',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports.py',
+   'PYMODULE'),
+  ('serial.tools.list_ports_posix',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports_posix.py',
+   'PYMODULE'),
+  ('serial.tools.list_ports_osx',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports_osx.py',
+   'PYMODULE'),
+  ('serial.tools.list_ports_linux',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports_linux.py',
+   'PYMODULE'),
+  ('serial.win32',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\win32.py',
+   'PYMODULE'),
+  ('serial',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\__init__.py',
+   'PYMODULE'),
+  ('serial.serialjava',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\serialjava.py',
+   'PYMODULE'),
+  ('serial.serialposix',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\serialposix.py',
+   'PYMODULE'),
+  ('serial.serialwin32',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\serialwin32.py',
+   'PYMODULE'),
+  ('serial.serialcli',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\serialcli.py',
+   'PYMODULE'),
+  ('serial.serialutil',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\serialutil.py',
+   'PYMODULE'),
+  ('ctypes.wintypes',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ctypes\\wintypes.py',
+   'PYMODULE'),
+  ('ctypes',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ctypes\\__init__.py',
+   'PYMODULE'),
+  ('ctypes._endian',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ctypes\\_endian.py',
+   'PYMODULE'),
+  ('ctypes._layout',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ctypes\\_layout.py',
+   'PYMODULE'),
+  ('sysconfig',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\sysconfig\\__init__.py',
+   'PYMODULE'),
+  ('_aix_support',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\_aix_support.py',
+   'PYMODULE'),
+  ('subprocess',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\subprocess.py',
+   'PYMODULE'),
+  ('signal',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\signal.py',
+   'PYMODULE'),
+  ('codeop',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\codeop.py',
    'PYMODULE'),
   ('stringprep',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\stringprep.py',
@@ -422,15 +505,6 @@
    'PYMODULE'),
   ('_py_abc',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\_py_abc.py',
-   'PYMODULE'),
-  ('subprocess',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\subprocess.py',
-   'PYMODULE'),
-  ('signal',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\signal.py',
-   'PYMODULE'),
-  ('codeop',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\codeop.py',
    'PYMODULE'),
   ('remote_control.main_window',
    'D:\\RM Main softwares\\Keil5 '
@@ -453,19 +527,19 @@
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\remote_control\\ui\\plot_legend.py',
    'PYMODULE'),
   ('shiboken6',
-   'd:\\RM Main softwares\\Keil5 '
+   'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\shiboken6\\__init__.py',
    'PYMODULE'),
   ('PySide6',
-   'd:\\RM Main softwares\\Keil5 '
+   'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\__init__.py',
    'PYMODULE'),
   ('PySide6.support.deprecated',
-   'd:\\RM Main softwares\\Keil5 '
+   'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\support\\deprecated.py',
    'PYMODULE'),
   ('PySide6.support',
-   'd:\\RM Main softwares\\Keil5 '
+   'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\support\\__init__.py',
    'PYMODULE'),
   ('remote_control.ui.live_plot',
@@ -479,80 +553,6 @@
   ('remote_control.serial_link',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\remote_control\\serial_link.py',
-   'PYMODULE'),
-  ('serial.tools.list_ports',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports.py',
-   'PYMODULE'),
-  ('serial.tools.list_ports_posix',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports_posix.py',
-   'PYMODULE'),
-  ('serial.tools.list_ports_osx',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports_osx.py',
-   'PYMODULE'),
-  ('ctypes',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ctypes\\__init__.py',
-   'PYMODULE'),
-  ('ctypes._endian',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ctypes\\_endian.py',
-   'PYMODULE'),
-  ('ctypes._layout',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ctypes\\_layout.py',
-   'PYMODULE'),
-  ('sysconfig',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\sysconfig\\__init__.py',
-   'PYMODULE'),
-  ('_aix_support',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\_aix_support.py',
-   'PYMODULE'),
-  ('serial.tools.list_ports_linux',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports_linux.py',
-   'PYMODULE'),
-  ('serial.tools.list_ports_common',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports_common.py',
-   'PYMODULE'),
-  ('serial.tools.list_ports_windows',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\list_ports_windows.py',
-   'PYMODULE'),
-  ('serial.win32',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\win32.py',
-   'PYMODULE'),
-  ('ctypes.wintypes',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ctypes\\wintypes.py',
-   'PYMODULE'),
-  ('serial.tools',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\tools\\__init__.py',
-   'PYMODULE'),
-  ('serial',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\__init__.py',
-   'PYMODULE'),
-  ('serial.serialjava',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\serialjava.py',
-   'PYMODULE'),
-  ('serial.serialposix',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\serialposix.py',
-   'PYMODULE'),
-  ('serial.serialwin32',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\serialwin32.py',
-   'PYMODULE'),
-  ('serial.serialcli',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\serialcli.py',
-   'PYMODULE'),
-  ('serial.serialutil',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\serial\\serialutil.py',
    'PYMODULE'),
   ('remote_control.app_settings',
    'D:\\RM Main softwares\\Keil5 '
@@ -573,89 +573,89 @@
  [('python314.dll',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\python314.dll',
    'BINARY'),
-  ('PySide6\\plugins\\imageformats\\qtiff.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qtiff.dll',
-   'BINARY'),
   ('PySide6\\plugins\\imageformats\\qpdf.dll',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qpdf.dll',
-   'BINARY'),
-  ('PySide6\\plugins\\imageformats\\qjpeg.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qjpeg.dll',
-   'BINARY'),
-  ('PySide6\\plugins\\generic\\qtuiotouchplugin.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\generic\\qtuiotouchplugin.dll',
-   'BINARY'),
-  ('PySide6\\plugins\\imageformats\\qico.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qico.dll',
-   'BINARY'),
-  ('PySide6\\plugins\\platforms\\qwindows.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qwindows.dll',
-   'BINARY'),
-  ('PySide6\\plugins\\platforms\\qminimal.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qminimal.dll',
    'BINARY'),
   ('PySide6\\plugins\\imageformats\\qgif.dll',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qgif.dll',
    'BINARY'),
-  ('PySide6\\plugins\\platforminputcontexts\\qtvirtualkeyboardplugin.dll',
+  ('PySide6\\plugins\\imageformats\\qtiff.dll',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\platforminputcontexts\\qtvirtualkeyboardplugin.dll',
-   'BINARY'),
-  ('PySide6\\plugins\\iconengines\\qsvgicon.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\iconengines\\qsvgicon.dll',
-   'BINARY'),
-  ('PySide6\\plugins\\platforms\\qdirect2d.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qdirect2d.dll',
-   'BINARY'),
-  ('PySide6\\plugins\\imageformats\\qwbmp.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qwbmp.dll',
-   'BINARY'),
-  ('PySide6\\plugins\\imageformats\\qwebp.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qwebp.dll',
-   'BINARY'),
-  ('PySide6\\plugins\\imageformats\\qicns.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qicns.dll',
-   'BINARY'),
-  ('PySide6\\plugins\\platforms\\qoffscreen.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qoffscreen.dll',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qtiff.dll',
    'BINARY'),
   ('PySide6\\plugins\\imageformats\\qtga.dll',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qtga.dll',
    'BINARY'),
+  ('PySide6\\plugins\\platforms\\qwindows.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qwindows.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qjpeg.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qjpeg.dll',
+   'BINARY'),
   ('PySide6\\plugins\\imageformats\\qsvg.dll',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qsvg.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\generic\\qtuiotouchplugin.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\generic\\qtuiotouchplugin.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\iconengines\\qsvgicon.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\iconengines\\qsvgicon.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforminputcontexts\\qtvirtualkeyboardplugin.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\platforminputcontexts\\qtvirtualkeyboardplugin.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qicns.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qicns.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qico.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qico.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qwebp.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qwebp.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qwbmp.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qwbmp.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforms\\qdirect2d.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qdirect2d.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforms\\qminimal.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qminimal.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforms\\qoffscreen.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qoffscreen.dll',
    'BINARY'),
   ('PySide6\\opengl32sw.dll',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\opengl32sw.dll',
    'BINARY'),
-  ('PySide6\\plugins\\networkinformation\\qnetworklistmanager.dll',
+  ('PySide6\\plugins\\tls\\qcertonlybackend.dll',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\networkinformation\\qnetworklistmanager.dll',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\tls\\qcertonlybackend.dll',
    'BINARY'),
   ('PySide6\\plugins\\tls\\qschannelbackend.dll',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\tls\\qschannelbackend.dll',
    'BINARY'),
-  ('PySide6\\plugins\\tls\\qcertonlybackend.dll',
+  ('PySide6\\plugins\\networkinformation\\qnetworklistmanager.dll',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\tls\\qcertonlybackend.dll',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\plugins\\networkinformation\\qnetworklistmanager.dll',
    'BINARY'),
   ('PySide6\\plugins\\tls\\qopensslbackend.dll',
    'D:\\RM Main softwares\\Keil5 '
@@ -692,71 +692,52 @@
   ('_ssl.pyd',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\DLLs\\_ssl.pyd',
    'EXTENSION'),
-  ('PySide6\\QtGui.pyd',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\QtGui.pyd',
-   'EXTENSION'),
-  ('shiboken6\\Shiboken.pyd',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\shiboken6\\Shiboken.pyd',
-   'EXTENSION'),
-  ('PySide6\\QtNetwork.pyd',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\QtNetwork.pyd',
-   'EXTENSION'),
   ('_ctypes.pyd',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\DLLs\\_ctypes.pyd',
    'EXTENSION'),
+  ('PySide6\\QtGui.pyd',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\QtGui.pyd',
+   'EXTENSION'),
+  ('shiboken6\\Shiboken.pyd',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\shiboken6\\Shiboken.pyd',
+   'EXTENSION'),
+  ('PySide6\\QtNetwork.pyd',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\QtNetwork.pyd',
+   'EXTENSION'),
   ('PySide6\\QtCore.pyd',
-   'd:\\RM Main softwares\\Keil5 '
+   'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\QtCore.pyd',
    'EXTENSION'),
   ('PySide6\\QtWidgets.pyd',
-   'd:\\RM Main softwares\\Keil5 '
+   'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\QtWidgets.pyd',
    'EXTENSION'),
-  ('api-ms-win-crt-stdio-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-stdio-l1-1-0.dll',
-   'BINARY'),
   ('api-ms-win-crt-filesystem-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
    'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-filesystem-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-convert-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-convert-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-locale-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-locale-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-conio-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-conio-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-heap-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-heap-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-runtime-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-runtime-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-string-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-string-l1-1-0.dll',
-   'BINARY'),
-  ('VCRUNTIME140.dll',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\VCRUNTIME140.dll',
    'BINARY'),
   ('api-ms-win-crt-process-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
    'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-process-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-crt-environment-l1-1-0.dll',
+  ('api-ms-win-crt-convert-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-environment-l1-1-0.dll',
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-convert-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-runtime-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-runtime-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-conio-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-conio-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-stdio-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-stdio-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-crt-time-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
@@ -766,13 +747,24 @@
    'C:\\Program Files\\Eclipse '
    'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-math-l1-1-0.dll',
    'BINARY'),
-  ('PySide6\\Qt6Gui.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6Gui.dll',
+  ('VCRUNTIME140.dll',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\VCRUNTIME140.dll',
    'BINARY'),
-  ('api-ms-win-crt-utility-l1-1-0.dll',
+  ('api-ms-win-crt-string-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-utility-l1-1-0.dll',
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-string-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-locale-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-locale-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-environment-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-environment-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-heap-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-heap-l1-1-0.dll',
    'BINARY'),
   ('PySide6\\Qt6Core.dll',
    'D:\\RM Main softwares\\Keil5 '
@@ -782,9 +774,13 @@
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6Pdf.dll',
    'BINARY'),
-  ('PySide6\\Qt6Network.dll',
+  ('PySide6\\Qt6Gui.dll',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6Network.dll',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6Gui.dll',
+   'BINARY'),
+  ('api-ms-win-crt-utility-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-crt-utility-l1-1-0.dll',
    'BINARY'),
   ('shiboken6\\MSVCP140.dll',
    'D:\\RM Main softwares\\Keil5 '
@@ -793,13 +789,17 @@
   ('VCRUNTIME140_1.dll',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\VCRUNTIME140_1.dll',
    'BINARY'),
-  ('PySide6\\Qt6VirtualKeyboard.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6VirtualKeyboard.dll',
-   'BINARY'),
   ('PySide6\\Qt6Svg.dll',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6Svg.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Network.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6Network.dll',
+   'BINARY'),
+  ('PySide6\\Qt6VirtualKeyboard.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6VirtualKeyboard.dll',
    'BINARY'),
   ('PySide6\\Qt6Widgets.dll',
    'D:\\RM Main softwares\\Keil5 '
@@ -811,43 +811,43 @@
   ('libssl-3.dll',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\DLLs\\libssl-3.dll',
    'BINARY'),
-  ('PySide6\\VCRUNTIME140.dll',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\VCRUNTIME140.dll',
+  ('libffi-8.dll',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\DLLs\\libffi-8.dll',
    'BINARY'),
-  ('PySide6\\VCRUNTIME140_1.dll',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\VCRUNTIME140_1.dll',
-   'BINARY'),
-  ('python3.dll',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\python3.dll',
+  ('PySide6\\MSVCP140.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\MSVCP140.dll',
    'BINARY'),
   ('shiboken6\\shiboken6.abi3.dll',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\shiboken6\\shiboken6.abi3.dll',
    'BINARY'),
-  ('PySide6\\MSVCP140.dll',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\MSVCP140.dll',
-   'BINARY'),
   ('PySide6\\pyside6.abi3.dll',
-   'd:\\RM Main softwares\\Keil5 '
+   'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\pyside6.abi3.dll',
    'BINARY'),
   ('PySide6\\MSVCP140_2.dll',
-   'd:\\RM Main softwares\\Keil5 '
+   'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\MSVCP140_2.dll',
    'BINARY'),
-  ('shiboken6\\VCRUNTIME140.dll',
-   'd:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\shiboken6\\VCRUNTIME140.dll',
+  ('PySide6\\VCRUNTIME140_1.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('PySide6\\VCRUNTIME140.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\VCRUNTIME140.dll',
+   'BINARY'),
+  ('python3.dll',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\python3.dll',
    'BINARY'),
   ('shiboken6\\VCRUNTIME140_1.dll',
-   'd:\\RM Main softwares\\Keil5 '
+   'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\shiboken6\\VCRUNTIME140_1.dll',
    'BINARY'),
-  ('libffi-8.dll',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\DLLs\\libffi-8.dll',
+  ('shiboken6\\VCRUNTIME140.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\shiboken6\\VCRUNTIME140.dll',
    'BINARY'),
   ('ucrtbase.dll',
    'C:\\Program Files\\Eclipse '
@@ -869,81 +869,25 @@
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6Qml.dll',
    'BINARY'),
-  ('api-ms-win-core-namedpipe-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-namedpipe-l1-1-0.dll',
-   'BINARY'),
   ('api-ms-win-core-file-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
    'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-file-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-rtlsupport-l1-1-0.dll',
+  ('api-ms-win-core-file-l1-2-0.dll',
    'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-rtlsupport-l1-1-0.dll',
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-file-l1-2-0.dll',
    'BINARY'),
-  ('api-ms-win-core-fibers-l1-1-1.dll',
+  ('api-ms-win-core-sysinfo-l1-2-0.dll',
    'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-fibers-l1-1-1.dll',
-   'BINARY'),
-  ('api-ms-win-core-synch-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-synch-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-debug-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-debug-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-kernel32-legacy-l1-1-1.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-kernel32-legacy-l1-1-1.dll',
-   'BINARY'),
-  ('api-ms-win-core-datetime-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-datetime-l1-1-0.dll',
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-sysinfo-l1-2-0.dll',
    'BINARY'),
   ('api-ms-win-core-processenvironment-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
    'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-processenvironment-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-interlocked-l1-1-0.dll',
+  ('api-ms-win-core-console-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-interlocked-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-file-l2-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-file-l2-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-util-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-util-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-fibers-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-fibers-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-handle-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-handle-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-profile-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-profile-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-processthreads-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-string-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-string-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-localization-l1-2-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-localization-l1-2-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-sysinfo-l1-1-0.dll',
-   'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-sysinfo-l1-1-0.dll',
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-console-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-errorhandling-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
@@ -953,41 +897,97 @@
    'C:\\Program Files\\Eclipse '
    'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-memory-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-processthreads-l1-1-1.dll',
+  ('api-ms-win-core-libraryloader-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-1.dll',
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-libraryloader-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-console-l1-1-0.dll',
+  ('api-ms-win-core-rtlsupport-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-console-l1-1-0.dll',
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-rtlsupport-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-timezone-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
    'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-timezone-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-sysinfo-l1-2-0.dll',
+  ('api-ms-win-core-fibers-l1-1-1.dll',
    'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-sysinfo-l1-2-0.dll',
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-fibers-l1-1-1.dll',
    'BINARY'),
-  ('api-ms-win-core-libraryloader-l1-1-0.dll',
+  ('api-ms-win-core-processthreads-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-libraryloader-l1-1-0.dll',
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-file-l1-2-0.dll',
+  ('api-ms-win-core-handle-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
-   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-file-l1-2-0.dll',
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-handle-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-kernel32-legacy-l1-1-1.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-kernel32-legacy-l1-1-1.dll',
+   'BINARY'),
+  ('api-ms-win-core-synch-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-synch-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-heap-l1-1-0.dll',
    'C:\\Program Files\\Eclipse '
    'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-heap-l1-1-0.dll',
    'BINARY'),
-  ('PySide6\\Qt6OpenGL.dll',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6OpenGL.dll',
+  ('api-ms-win-core-debug-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-debug-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-datetime-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-datetime-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-sysinfo-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-sysinfo-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-interlocked-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-interlocked-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-util-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-util-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-namedpipe-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-namedpipe-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-processthreads-l1-1-1.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-1.dll',
+   'BINARY'),
+  ('api-ms-win-core-string-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-string-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-file-l2-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-file-l2-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-localization-l1-2-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-localization-l1-2-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-fibers-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-fibers-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-profile-l1-1-0.dll',
+   'C:\\Program Files\\Eclipse '
+   'Adoptium\\jdk-21.0.12.8-hotspot\\bin\\api-ms-win-core-profile-l1-1-0.dll',
    'BINARY'),
   ('PySide6\\Qt6QmlModels.dll',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6QmlModels.dll',
+   'BINARY'),
+  ('PySide6\\Qt6OpenGL.dll',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\Qt6OpenGL.dll',
    'BINARY'),
   ('PySide6\\Qt6QmlMeta.dll',
    'D:\\RM Main softwares\\Keil5 '
@@ -999,313 +999,121 @@
    'BINARY')],
  [],
  [],
- [('PySide6\\translations\\qtbase_fi.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_fi.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_ar.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ar.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_he.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_he.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_ko.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ko.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_sv.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_sv.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_bg.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_bg.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_nn.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_nn.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_hu.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_hu.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_gl.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_gl.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_ru.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ru.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_hu.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_hu.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_ka.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ka.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_de.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_de.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_lg.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_lg.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_sl.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_sl.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_fr.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_fr.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_pt_BR.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_pt_BR.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_hr.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_hr.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_zh_CN.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_zh_CN.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_fi.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_fi.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_ja.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ja.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_gd.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_gd.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_es.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_es.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_ka.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ka.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_pt_PT.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_pt_PT.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_ru.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ru.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_cs.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_cs.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_hu.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_hu.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_cs.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_cs.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_lg.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_lg.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_nl.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_nl.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_sv.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_sv.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_sv.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_sv.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_tr.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_tr.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_fr.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_fr.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_en.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_en.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_ja.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ja.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_he.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_he.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_nl.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_nl.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_ca.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ca.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_uk.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_uk.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_de.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_de.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_ca.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ca.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_uk.qm',
+ [('PySide6\\translations\\qtbase_uk.qm',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_uk.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_fr.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_fr.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_ar.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ar.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_da.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_da.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_it.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_it.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_sk.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_sk.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_zh_CN.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_zh_CN.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_ka.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ka.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_it.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_it.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_ko.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ko.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_pl.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_pl.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_ar.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ar.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_bg.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_bg.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_es.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_es.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_nl.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_nl.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_bg.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_bg.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_en.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_en.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_pt_BR.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_pt_BR.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_da.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_da.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_de.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_de.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_ru.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ru.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_zh_CN.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_zh_CN.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_tr.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_tr.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_fa.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_fa.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_hr.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_hr.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_it.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_it.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_pt_BR.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_pt_BR.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_sk.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_sk.qm',
    'DATA'),
   ('PySide6\\translations\\qt_gl.qm',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_gl.qm',
    'DATA'),
+  ('PySide6\\translations\\qtbase_es.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_es.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_zh_CN.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_zh_CN.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ru.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ru.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_pt_BR.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_pt_BR.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ar.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ar.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_de.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_de.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ja.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ja.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_zh_CN.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_zh_CN.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_fa.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_fa.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ar.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ar.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_fr.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_fr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_nn.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_nn.qm',
+   'DATA'),
   ('PySide6\\translations\\qt_help_zh_TW.qm',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_zh_TW.qm',
    'DATA'),
-  ('PySide6\\translations\\qtbase_gd.qm',
+  ('PySide6\\translations\\qt_uk.qm',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_gd.qm',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_uk.qm',
    'DATA'),
-  ('PySide6\\translations\\qtbase_zh_TW.qm',
+  ('PySide6\\translations\\qtbase_sv.qm',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_zh_TW.qm',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_sv.qm',
    'DATA'),
-  ('PySide6\\translations\\qt_help_ca.qm',
+  ('PySide6\\translations\\qt_help_hu.qm',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ca.qm',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_hu.qm',
    'DATA'),
-  ('PySide6\\translations\\qt_help_sl.qm',
+  ('PySide6\\translations\\qt_help_it.qm',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_sl.qm',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_it.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ko.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ko.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_tr.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_tr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_tr.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_tr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_sl.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_sl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_sv.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_sv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_hu.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_hu.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_da.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_da.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_lv.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_lv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ru.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ru.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ca.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ca.qm',
    'DATA'),
   ('PySide6\\translations\\qtbase_nn.qm',
    'D:\\RM Main softwares\\Keil5 '
@@ -1315,86 +1123,287 @@
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_tr.qm',
    'DATA'),
-  ('PySide6\\translations\\qtbase_ja.qm',
+  ('PySide6\\translations\\qtbase_ka.qm',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ja.qm',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ka.qm',
    'DATA'),
-  ('PySide6\\translations\\qtbase_fa.qm',
+  ('PySide6\\translations\\qt_fa.qm',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_fa.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_hr.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_hr.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_pl.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_pl.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_zh_TW.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_zh_TW.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_lv.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_lv.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_ko.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ko.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_help_cs.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_cs.qm',
-   'DATA'),
-  ('PySide6\\translations\\qt_lv.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_lv.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_da.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_da.qm',
-   'DATA'),
-  ('PySide6\\translations\\qtbase_en.qm',
-   'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_en.qm',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_fa.qm',
    'DATA'),
   ('PySide6\\translations\\qt_help_nn.qm',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_nn.qm',
    'DATA'),
-  ('PySide6\\translations\\qt_sk.qm',
+  ('PySide6\\translations\\qt_help_cs.qm',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_sk.qm',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_cs.qm',
    'DATA'),
-  ('PySide6\\translations\\qtbase_es.qm',
+  ('PySide6\\translations\\qtbase_ko.qm',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_es.qm',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ko.qm',
    'DATA'),
-  ('PySide6\\translations\\qtbase_pl.qm',
+  ('PySide6\\translations\\qt_de.qm',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_pl.qm',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_de.qm',
    'DATA'),
-  ('PySide6\\translations\\qt_lt.qm',
+  ('PySide6\\translations\\qt_help_sv.qm',
    'D:\\RM Main softwares\\Keil5 '
-   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_lt.qm',
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_sv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_fi.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_fi.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_es.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_es.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_es.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_es.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_hr.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_hr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_bg.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_bg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_nl.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_nl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_pl.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_pl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_de.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_de.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_he.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_he.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_sl.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_sl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_fr.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_fr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_zh_TW.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_zh_TW.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_hr.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_hr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_hr.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_hr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_lg.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_lg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_da.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_da.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ka.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ka.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_gl.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_gl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_pt_BR.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_pt_BR.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_he.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_he.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_cs.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_cs.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_nl.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_nl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ca.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ca.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ar.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ar.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_it.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_it.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ca.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ca.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_it.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_it.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ja.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ja.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_fi.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_fi.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_lv.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_lv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ko.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_ko.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_en.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_en.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_gd.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_gd.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_bg.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_bg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_da.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_da.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_fr.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_fr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_pt_PT.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_pt_PT.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_pl.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_pl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ru.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ru.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_nl.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_nl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_lg.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_lg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_en.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_en.qm',
    'DATA'),
   ('PySide6\\translations\\qt_help_uk.qm',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_uk.qm',
    'DATA'),
+  ('PySide6\\translations\\qtbase_zh_TW.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_zh_TW.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_zh_CN.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_zh_CN.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_sk.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_sk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ja.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_ja.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_pl.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_pl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_cs.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_cs.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_bg.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_bg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_sk.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_sk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_hu.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_hu.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_gd.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_gd.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_en.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_en.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_sk.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_help_sk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ka.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_ka.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_pt_BR.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qtbase_pt_BR.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_lt.qm',
+   'D:\\RM Main softwares\\Keil5 '
+   'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\.venv\\Lib\\site-packages\\PySide6\\translations\\qt_lt.qm',
+   'DATA'),
   ('base_library.zip',
    'D:\\RM Main softwares\\Keil5 '
    'Projects\\CKYF-Projects\\VESC-ShootingMech-Test\\UARTDebug-Remotecontrol\\build\\VESC-UART-RemoteControl\\base_library.zip',
    'DATA')],
- [('posixpath',
+ [('io',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\io.py',
+   'PYMODULE'),
+  ('sre_parse',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\sre_parse.py',
+   'PYMODULE'),
+  ('posixpath',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\posixpath.py',
    'PYMODULE'),
-  ('weakref',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\weakref.py',
+  ('traceback',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\traceback.py',
    'PYMODULE'),
   ('heapq',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\heapq.py',
+   'PYMODULE'),
+  ('collections',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\collections\\__init__.py',
    'PYMODULE'),
   ('re._parser',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\re\\_parser.py',
@@ -1410,6 +1419,21 @@
    'PYMODULE'),
   ('re',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\re\\__init__.py',
+   'PYMODULE'),
+  ('_collections_abc',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\_collections_abc.py',
+   'PYMODULE'),
+  ('sre_compile',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\sre_compile.py',
+   'PYMODULE'),
+  ('weakref',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\weakref.py',
+   'PYMODULE'),
+  ('enum',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\enum.py',
+   'PYMODULE'),
+  ('sre_constants',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\sre_constants.py',
    'PYMODULE'),
   ('encodings.zlib_codec',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\encodings\\zlib_codec.py',
@@ -1780,35 +1804,29 @@
   ('encodings',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\encodings\\__init__.py',
    'PYMODULE'),
-  ('enum',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\enum.py',
+  ('locale',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\locale.py',
    'PYMODULE'),
-  ('copyreg',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\copyreg.py',
+  ('_weakrefset',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\_weakrefset.py',
+   'PYMODULE'),
+  ('keyword',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\keyword.py',
    'PYMODULE'),
   ('functools',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\functools.py',
    'PYMODULE'),
-  ('reprlib',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\reprlib.py',
+  ('types',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\types.py',
    'PYMODULE'),
-  ('sre_constants',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\sre_constants.py',
-   'PYMODULE'),
-  ('io',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\io.py',
+  ('copyreg',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\copyreg.py',
    'PYMODULE'),
   ('warnings',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\warnings.py',
    'PYMODULE'),
-  ('stat',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\stat.py',
-   'PYMODULE'),
-  ('abc',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\abc.py',
-   'PYMODULE'),
-  ('collections',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\collections\\__init__.py',
+  ('reprlib',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\reprlib.py',
    'PYMODULE'),
   ('genericpath',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\genericpath.py',
@@ -1816,39 +1834,21 @@
   ('ntpath',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ntpath.py',
    'PYMODULE'),
-  ('_collections_abc',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\_collections_abc.py',
-   'PYMODULE'),
-  ('types',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\types.py',
-   'PYMODULE'),
-  ('sre_parse',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\sre_parse.py',
-   'PYMODULE'),
-  ('_weakrefset',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\_weakrefset.py',
-   'PYMODULE'),
-  ('linecache',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\linecache.py',
+  ('os',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\os.py',
    'PYMODULE'),
   ('operator',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\operator.py',
    'PYMODULE'),
+  ('stat',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\stat.py',
+   'PYMODULE'),
+  ('abc',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\abc.py',
+   'PYMODULE'),
   ('codecs',
    'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\codecs.py',
    'PYMODULE'),
-  ('os',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\os.py',
-   'PYMODULE'),
-  ('keyword',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\keyword.py',
-   'PYMODULE'),
-  ('sre_compile',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\sre_compile.py',
-   'PYMODULE'),
-  ('traceback',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\traceback.py',
-   'PYMODULE'),
-  ('locale',
-   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\locale.py',
+  ('linecache',
+   'C:\\Users\\HunterCHCL\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\linecache.py',
    'PYMODULE')])

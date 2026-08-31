@@ -1,17 +1,17 @@
 {
   "window": {
-    "x": 364,
-    "y": 190,
+    "x": 309,
+    "y": 230,
     "w": 980,
     "h": 760,
     "maximized": false
   },
   "serial": {
-    "last_port": "COM9",
+    "last_port": "",
     "baud": 115200
   },
   "control": {
-    "period": 350,
+    "period": 200,
     "wheel_step": [
       500,
       500
@@ -49,11 +49,11 @@
     "show_x_axis": true,
     "top_splitter_sizes": [
       210,
-      736
+      700
     ],
     "main_splitter_sizes": [
-      554,
-      149
+      420,
+      200
     ]
   }
 }
