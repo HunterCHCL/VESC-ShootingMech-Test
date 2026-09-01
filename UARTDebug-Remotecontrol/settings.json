@@ -1,14 +1,17 @@
 {
   "window": {
-    "x": 102,
-    "y": 121,
+    "x": 1142,
+    "y": 522,
     "w": 1059,
-    "h": 757,
+    "h": 745,
     "maximized": false
   },
   "serial": {
     "last_port": "COM9",
     "baud": 115200
+  },
+  "appearance": {
+    "theme": "dark"
   },
   "control": {
     "period": 400,

@@ -16,7 +16,7 @@ from PySide6.QtWidgets import (
     QPushButton, QSpinBox, QVBoxLayout,
 )
 
-from .. import config
+from .. import config, theme
 
 VESC_NAMES = ["V1/R1", "V2/R2", "V3/R3", "V4/F1", "V5/F2", "V6/F3"]
 GROUP_INFO = [  # (组内电机下标, 组名)
@@ -66,9 +66,10 @@ class ControlPanel(QFrame):
         grid.setHorizontalSpacing(14)
         grid.setVerticalSpacing(6)
 
-        head = QLabel("启用")
-        head.setStyleSheet("color:#bbb;")
-        grid.addWidget(head, 0, 0)
+        self._head_label = QLabel("启用")
+        self._head_label.setStyleSheet(
+            f"color:{theme.colors()['text_secondary']};")
+        grid.addWidget(self._head_label, 0, 0)
         grid.addWidget(QLabel("电机"), 0, 1)
         grid.addWidget(QLabel("目标 erpm"), 0, 2)
         grid.addWidget(QLabel("实测 erpm"), 0, 3)
@@ -79,6 +80,7 @@ class ControlPanel(QFrame):
         self._group_sync_chk: list[QCheckBox] = []
         self._forward_only: list[QCheckBox] = []
         self._wheel_steps: list[QSpinBox] = []
+        self._group_titles: list[QLabel] = []
 
         defaults_en = config.get_enabled()
         defaults_tg = config.get_targets()
@@ -99,8 +101,11 @@ class ControlPanel(QFrame):
         row = 1
         for group_idx, (indices, group_name) in enumerate(GROUP_INFO):
             ttl = QLabel(group_name)
-            ttl.setStyleSheet("font-weight:bold;color:#bbb;")
+            ttl.setStyleSheet(
+                "font-weight:bold;"
+                f"color:{theme.colors()['text_secondary']};")
             grid.addWidget(ttl, row, 0, 1, 4)
+            self._group_titles.append(ttl)
             row += 1
 
             for idx in indices:
@@ -184,18 +189,19 @@ class ControlPanel(QFrame):
         quick.addWidget(self.btn_all_zero)
         quick.addStretch(1)
 
-        note = QLabel(
+        self._note_label = QLabel(
             "提示：MCU 看门狗 1s，未持续发送时目标 1s 后自动清零；"
             "「全部急停」会清空目标并发送全 0。")
-        note.setStyleSheet("color:#888;")
-        note.setWordWrap(True)
+        self._note_label.setStyleSheet(
+            f"color:{theme.colors()['hint']};")
+        self._note_label.setWordWrap(True)
 
         lay = QVBoxLayout(self)
         lay.addLayout(ctrl)
         lay.addLayout(grid)
         lay.addLayout(quick)
         lay.addStretch(1)
-        lay.addWidget(note)
+        lay.addWidget(self._note_label)
 
         # ---------------- 信号 ----------------
         self.chk_continuous.toggled.connect(self.continuous_toggled)
@@ -207,6 +213,7 @@ class ControlPanel(QFrame):
         self.spin_period.valueChanged.connect(config.set_period)
 
         self._loading = False  # 构造完成，后续改动会持久化
+        theme.on_change(self._apply_theme)
 
     # ---------------- 内部操作 ----------------
     def _on_motor_changed(self, group_idx: int, changed_idx: int) -> None:
@@ -247,6 +254,16 @@ class ControlPanel(QFrame):
         config.set_group_forward_only(
             [c.isChecked() for c in self._forward_only])
         config.set_group_sync([c.isChecked() for c in self._group_sync_chk])
+
+    def _apply_theme(self) -> None:
+        """主题切换：刷新表头 / 组标题 / 提示文字配色。"""
+        c = theme.colors()
+        self._head_label.setStyleSheet(f"color:{c['text_secondary']};")
+        for ttl in self._group_titles:
+            ttl.setStyleSheet(
+                "font-weight:bold;"
+                f"color:{c['text_secondary']};")
+        self._note_label.setStyleSheet(f"color:{c['hint']};")
 
     def _set_all_enabled(self, on: bool) -> None:
         for chk in self._enabled:
