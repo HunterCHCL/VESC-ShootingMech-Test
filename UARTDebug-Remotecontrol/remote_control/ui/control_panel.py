@@ -139,6 +139,10 @@ class ControlPanel(QFrame):
             wstep.setToolTip("滚轮每格调整的目标 erpm 步进值。")
             wstep.valueChanged.connect(
                 lambda v, g=group_idx: self._on_wheel_step_changed(v, g))
+            # 恢复持久化的滚轮步进：立即应用到该组目标 spinbox 的单步值，
+            # 否则打开软件后未调整滚轮步进时，滚轮仍按硬编码 500 步进。
+            for idx in GROUP_INFO[group_idx][0]:
+                self._targets[idx].setSingleStep(wstep.value())
 
             fwd = QCheckBox("仅限正向")
             fwd.setToolTip(
