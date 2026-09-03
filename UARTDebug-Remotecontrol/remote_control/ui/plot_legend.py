@@ -14,10 +14,8 @@ from PySide6.QtWidgets import (
     QFrame, QHBoxLayout, QLabel, QWidget,
 )
 
+from .. import theme
 from .live_plot import COLORS
-
-_HL_BG = "#233140"      # 突出显示项的底色
-_HL_BORDER = "#3498db"  # 突出显示项的边框色
 
 
 class _LegendItem(QFrame):
@@ -57,10 +55,13 @@ class _LegendItem(QFrame):
         self._refresh()
 
     def _refresh(self) -> None:
-        name_color = "#ddd" if self._visible else "#555"
-        sw = self._color.name() if self._visible else "#444"
-        border = f"border:1px solid {_HL_BORDER};" if self._highlighted else ""
-        bg = f"background:{_HL_BG};" if self._highlighted else ""
+        c = theme.colors()
+        name_color = (c["legend_name"] if self._visible
+                      else c["legend_hidden_name"])
+        sw = self._color.name() if self._visible else c["legend_swatch_hidden"]
+        border = (f"border:1px solid {c['legend_hl_border']};"
+                  if self._highlighted else "")
+        bg = f"background:{c['legend_hl_bg']};" if self._highlighted else ""
         bold = "font-weight:bold;" if self._highlighted else ""
         self.name.setStyleSheet(
             f"color:{name_color};font-size:11px;{bold}")
@@ -98,6 +99,17 @@ class PlotLegend(QWidget):
             self._items.append(item)
             lay.addWidget(item)
         lay.addStretch(1)
+        # 图例容器背景取绘图区颜色：白天/黑夜均与下方折线图融为一体
+        self.setStyleSheet(
+            f"background:{theme.colors()['plot_bg']};")
+        theme.on_change(self._apply_theme)
+
+    def _apply_theme(self) -> None:
+        """主题切换：刷新所有图例项配色。"""
+        self.setStyleSheet(
+            f"background:{theme.colors()['plot_bg']};")
+        for it in self._items:
+            it._refresh()
 
     # ---- 信号转发 ----
     def _on_item_visible(self, index: int, on: bool) -> None:

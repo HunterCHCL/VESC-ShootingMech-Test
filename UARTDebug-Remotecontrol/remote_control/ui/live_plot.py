@@ -22,13 +22,10 @@ from PySide6.QtCore import QRectF, Qt
 from PySide6.QtGui import QColor, QFontMetrics, QPainter, QPen
 from PySide6.QtWidgets import QWidget
 
-from .. import config
+from .. import config, theme
 
+# 曲线通道颜色（语义色，两套主题通用）
 COLORS = ["#e74c3c", "#2ecc71", "#3498db", "#f39c12", "#9b59b6", "#1abc9c"]
-BG_COLOR = "#1e1e1e"
-GRID_COLOR = "#2d2d2d"
-ZERO_COLOR = "#4a4a4a"
-AXIS_COLOR = "#8a8a8a"
 TARGET_ALPHA = 110       # 设定转速虚线透明度 (0-255)
 _DEFAULT_Y = 1000.0      # 无数据时的默认 Y 半幅
 
@@ -97,6 +94,10 @@ class LivePlot(QWidget):
             "Ctrl+滚轮：以图像中心缩放 X 轴（时间）\n"
             "双击：复位视图并跟随最新")
 
+        # 主题配色（背景/网格/零轴/坐标轴），切换主题时刷新
+        self._c = dict(theme.colors())
+        theme.on_change(self._apply_theme)
+
     # ---------------- 数据入口 ----------------
     def push(self, values) -> None:
         """追加一帧采样（长度可小于通道数，缺省为 None）。"""
@@ -143,6 +144,11 @@ class LivePlot(QWidget):
     def set_show_x_axis(self, on: bool) -> None:
         """是否显示 X 轴（相对时间刻度与竖向网格）。"""
         self._show_x_axis = bool(on)
+        self.update()
+
+    def _apply_theme(self) -> None:
+        """主题切换：更新绘图配色并重绘。"""
+        self._c = dict(theme.colors())
         self.update()
 
     def set_channel_visible(self, index: int, on: bool) -> None:
@@ -244,7 +250,7 @@ class LivePlot(QWidget):
         if w <= 0 or h <= 0:
             p.end()
             return
-        p.fillRect(self.rect(), QColor(BG_COLOR))
+        p.fillRect(self.rect(), QColor(self._c["plot_bg"]))
 
         plot = self._plot_rect()
         if plot.width() <= 0 or plot.height() <= 0:
@@ -273,7 +279,7 @@ class LivePlot(QWidget):
     def _draw_grid(self, p, plot, y_lo, y_hi, start, end) -> None:
         # 水平网格（按 nice step）
         step = _nice_step(y_lo, y_hi, 6)
-        p.setPen(QPen(QColor(GRID_COLOR), 1))
+        p.setPen(QPen(QColor(self._c["plot_grid"]), 1))
         t = math.ceil(y_lo / step) * step
         while t <= y_hi + 1e-9:
             y = self._y_for(t, y_lo, y_hi, plot)
@@ -292,7 +298,7 @@ class LivePlot(QWidget):
         # 零轴加重
         if y_lo < 0.0 < y_hi:
             zy = self._y_for(0.0, y_lo, y_hi, plot)
-            p.setPen(QPen(QColor(ZERO_COLOR), 1))
+            p.setPen(QPen(QColor(self._c["plot_zero"]), 1))
             p.drawLine(int(plot.left()), int(zy), int(plot.right()), int(zy))
 
     def _draw_target_lines(self, p, plot, y_lo, y_hi) -> None:
@@ -368,7 +374,7 @@ class LivePlot(QWidget):
         step = _nice_step(y_lo, y_hi, 6)
         dec = _decimals_for_step(step)
         x_right = int(plot.left()) - 5
-        p.setPen(QPen(QColor(AXIS_COLOR), 1))
+        p.setPen(QPen(QColor(self._c["plot_axis"]), 1))
         t = math.ceil(y_lo / step) * step
         while t <= y_hi + 1e-9:
             y = self._y_for(t, y_lo, y_hi, plot)

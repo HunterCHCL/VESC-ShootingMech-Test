@@ -37,6 +37,7 @@ def default_file() -> str:
 DEFAULTS: dict[str, dict] = {
     "window": {"x": None, "y": None, "w": 980, "h": 760, "maximized": False},
     "serial": {"last_port": "", "baud": 115200},
+    "appearance": {"theme": "system"},  # 界面主题：白天/黑夜/跟随系统
     "control": {"period": 200,
                 "wheel_step": [500, 500],
                 "forward_only": [True, True],

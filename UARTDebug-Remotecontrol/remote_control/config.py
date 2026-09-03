@@ -72,6 +72,16 @@ def set_period(ms: int) -> None:
     app_settings.set("control", "period", ms)
 
 
+# ---- 外观主题（白天 / 黑夜 / 跟随系统） ----
+def get_theme_mode() -> str:
+    """界面外观主题：system / light / dark。"""
+    return str(app_settings.get("appearance", "theme", "system"))
+
+
+def set_theme_mode(mode: str) -> None:
+    app_settings.set("appearance", "theme", mode)
+
+
 # ---- 控制页分组设置（滚轮步进 / 仅限正向 / 3轮同步） ----
 def get_group_wheel_steps() -> list[int]:
     """各组滚轮步进值（QSpinBox）。"""

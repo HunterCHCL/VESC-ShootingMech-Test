@@ -17,16 +17,17 @@ from PySide6.QtWidgets import (
     QSplitter, QVBoxLayout, QWidget,
 )
 
-from .. import config
+from .. import config, theme
 from .live_plot import COLORS, LivePlot
 from .plot_legend import PlotLegend
 
 VESC_NAMES = ["V1/R1", "V2/R2", "V3/R3", "V4/F1", "V5/F2", "V6/F3"]
 
-_SPLITTER_STYLE = (
-    "QSplitter::handle { background:#3a3a3a; } "
-    "QSplitter::handle:hover { background:#4a6fa5; }"
-)
+
+def _splitter_style(p: dict) -> str:
+    """按主题配色生成分隔条样式。"""
+    return (f"QSplitter::handle {{ background:{p['splitter']}; }} "
+            f"QSplitter::handle:hover {{ background:{p['accent']}; }}")
 
 
 def _fmt(v, decimals: int = 0) -> str:
@@ -40,6 +41,8 @@ class MonitorPanel(QFrame):
     def __init__(self, parent=None) -> None:
         super().__init__(parent)
         self.setFrameShape(QFrame.StyledPanel)
+        self._c = dict(theme.colors())
+        theme.on_change(self._apply_theme)
 
         # ---- 左上：六路实时读数（紧凑） ----
         readouts = QWidget()
@@ -59,8 +62,8 @@ class MonitorPanel(QFrame):
             val = QLabel("—")
             val.setAlignment(Qt.AlignCenter)
             val.setStyleSheet(
-                "font-size:17px;font-weight:bold;color:#ecf0f1;"
-                "font-family:Consolas;")
+                "font-size:17px;font-weight:bold;"
+                f"color:{self._c['readout_val']};font-family:Consolas;")
             val.setMinimumHeight(30)
             col = i % 2
             row = (i // 2) * 2
@@ -72,29 +75,36 @@ class MonitorPanel(QFrame):
 
         # ---- 右上：实时曲线 + 可点击图例 ----
         self.plot = LivePlot(6, VESC_NAMES)
-        hint = QLabel(
+        self.hint = QLabel(
             "拖拽平移（左右=时间轴，上下=数值）· 滚轮缩放 Y · "
             "Ctrl+滚轮缩放 X · 双击复位；虚线为设定转速")
-        hint.setStyleSheet("color:#888;font-size:11px;")
+        self.hint.setStyleSheet(
+            f"background:{self._c['plot_bg']};"
+            f"color:{self._c['hint']};font-size:11px;padding:4px;")
         self.legend = PlotLegend(VESC_NAMES)
         self.legend.item_visible_changed.connect(self.plot.set_channel_visible)
         self.legend.item_highlight_changed.connect(self._on_legend_highlight)
-        right = QWidget()
-        rv = QVBoxLayout(right)
+        # 右上容器：提示 + 曲线 + 图例整片区域与绘图区同色（黑色），
+        # 避免白天模式下透出浅色背景形成白色间隔/白条。
+        self._right = QWidget()
+        self._right.setStyleSheet(
+            f"background:{self._c['plot_bg']};")
+        rv = QVBoxLayout(self._right)
         rv.setContentsMargins(0, 0, 0, 0)
-        rv.addWidget(hint)
+        rv.setSpacing(0)
+        rv.addWidget(self.hint)
         rv.addWidget(self.plot, 1)
         rv.addWidget(self.legend, 0)
 
         # ---- 上半部分：左右分栏（读数 | 曲线），可拖动分隔条 ----
         self.top_splitter = QSplitter(Qt.Horizontal)
         self.top_splitter.addWidget(readouts)
-        self.top_splitter.addWidget(right)
+        self.top_splitter.addWidget(self._right)
         self.top_splitter.setStretchFactor(0, 0)
         self.top_splitter.setStretchFactor(1, 1)
         self.top_splitter.setSizes(config.get_top_splitter_sizes())
         self.top_splitter.setHandleWidth(6)
-        self.top_splitter.setStyleSheet(_SPLITTER_STYLE)
+        self.top_splitter.setStyleSheet(_splitter_style(self._c))
         self.top_splitter.splitterMoved.connect(self._save_splitter_sizes)
 
         # ---- 底部：滚动日志 ----
@@ -122,7 +132,7 @@ class MonitorPanel(QFrame):
         self.main_splitter.setStretchFactor(1, 1)
         self.main_splitter.setSizes(config.get_main_splitter_sizes())
         self.main_splitter.setHandleWidth(6)
-        self.main_splitter.setStyleSheet(_SPLITTER_STYLE)
+        self.main_splitter.setStyleSheet(_splitter_style(self._c))
         self.main_splitter.splitterMoved.connect(self._save_splitter_sizes)
 
         lay = QVBoxLayout(self)
@@ -177,4 +187,20 @@ class MonitorPanel(QFrame):
         self.log.clear()
         for lbl in self._labels:
             lbl.setText("—")
+
+    def _apply_theme(self) -> None:
+        """主题切换：刷新分隔条 / 读数 / 提示文字配色。"""
+        self._c = dict(theme.colors())
+        self._right.setStyleSheet(
+            f"background:{self._c['plot_bg']};")
+        style = _splitter_style(self._c)
+        self.top_splitter.setStyleSheet(style)
+        self.main_splitter.setStyleSheet(style)
+        for lbl in self._labels:
+            lbl.setStyleSheet(
+                "font-size:17px;font-weight:bold;"
+                f"color:{self._c['readout_val']};font-family:Consolas;")
+        self.hint.setStyleSheet(
+            f"background:{self._c['plot_bg']};"
+            f"color:{self._c['hint']};font-size:11px;padding:4px;")
 
