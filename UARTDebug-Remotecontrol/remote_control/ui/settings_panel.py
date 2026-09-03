@@ -1,8 +1,9 @@
 """设置页：集中管理上位机可调参数。
 
-当前包含「显示单位」「数据监测」两个分组：
+当前包含「显示单位」「外观」「数据监测」三个分组：
     - 显示单位：ERPM / RPM 开关（7 ERPM = 1 RPM）。仅影响 UI 显示，
       发送与接收的数据始终为 ERPM（通信协议不变）。
+    - 外观：界面主题（跟随系统 / 白天 / 黑夜）。
     - 数据监测：
       - 曲线内存点数：数据监听页曲线每通道保留的最大采样数，
         曲线左右拖动可查看的历史范围不超过该值，超出自动丢弃（GC）。
@@ -27,7 +28,6 @@ class SettingsPanel(QFrame):
         super().__init__(parent)
         self.setFrameShape(QFrame.StyledPanel)
 
-<<<<<<< HEAD
         # ---------------- 显示单位（ERPM / RPM） ----------------
         unit_box = QGroupBox("显示单位")
         unit_form = QGridLayout(unit_box)
@@ -48,10 +48,10 @@ class SettingsPanel(QFrame):
         unit_tip = QLabel(
             "换算关系：7 ERPM = 1 RPM。\n"
             "发送与接收的数据始终为 ERPM，仅显示换算为所选单位。")
-        unit_tip.setStyleSheet("color:#888;")
+        unit_tip.setStyleSheet(f"color:{theme.colors()['hint']};")
         unit_tip.setWordWrap(True)
         unit_form.addWidget(unit_tip, 1, 0, 1, 2)
-=======
+
         # ---------------- 外观 ----------------
         box_theme = QGroupBox("外观")
         form_theme = QGridLayout(box_theme)
@@ -71,7 +71,6 @@ class SettingsPanel(QFrame):
         self.combo_theme.setCurrentIndex(idx if idx >= 0 else 0)
         form_theme.addWidget(QLabel("界面主题:"), 0, 0)
         form_theme.addWidget(self.combo_theme, 0, 1)
->>>>>>> 1d31a183728543d2b62dfc4f59c31b2af9b6380e
 
         # ---------------- 数据监测 ----------------
         box = QGroupBox("数据监测")
@@ -119,30 +118,25 @@ class SettingsPanel(QFrame):
         self.tip.setWordWrap(True)
 
         lay = QVBoxLayout(self)
-<<<<<<< HEAD
         lay.addWidget(unit_box)
-=======
         lay.addWidget(box_theme)
->>>>>>> 1d31a183728543d2b62dfc4f59c31b2af9b6380e
         lay.addWidget(box)
         lay.addWidget(self.tip)
         lay.addStretch(1)
 
         # 信号
         self.combo_unit.currentIndexChanged.connect(self._on_unit_changed)
+        self.combo_theme.currentIndexChanged.connect(self._on_theme_changed)
+        theme.on_change(self._apply_theme)
         self.spin_max_points.valueChanged.connect(config.set_max_points)
         self.spin_send_interval.valueChanged.connect(config.set_send_interval_ms)
         self.chk_show_x_axis.toggled.connect(config.set_show_x_axis)
 
-<<<<<<< HEAD
     def _on_unit_changed(self, index: int) -> None:
         """单位切换：写设置并通知主窗口换算各面板。"""
         unit = self.combo_unit.itemData(index)
         config.set_unit(unit)
         self.unit_changed.emit(unit)
-=======
-        self.combo_theme.currentIndexChanged.connect(self._on_theme_changed)
-        theme.on_change(self._apply_theme)
 
     def _on_theme_changed(self, index: int) -> None:
         """界面主题切换：持久化并立即应用。"""
@@ -153,4 +147,3 @@ class SettingsPanel(QFrame):
     def _apply_theme(self) -> None:
         """主题切换：刷新本页用到主题配色的控件。"""
         self.tip.setStyleSheet(f"color:{theme.colors()['hint']};")
->>>>>>> 1d31a183728543d2b62dfc4f59c31b2af9b6380e
