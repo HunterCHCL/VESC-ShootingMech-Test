@@ -73,6 +73,8 @@ class MainWindow(QMainWindow):
             self.monitor.plot.set_sample_interval)
         self.settings.chk_show_x_axis.toggled.connect(
             self.monitor.plot.set_show_x_axis)
+        # 设置 -> 显示单位（ERPM / RPM）
+        self.settings.unit_changed.connect(self._apply_unit)
 
         # 信号
         self.link.frame_received.connect(self._on_frame)
@@ -200,6 +202,13 @@ class MainWindow(QMainWindow):
             self.lbl_status.setStyleSheet("color:#2ecc71;font-weight:bold;")
 
     # ---------- 发送 ----------
+    def _apply_unit(self, unit: str) -> None:
+        """切换显示单位：换算控制页目标、监听页读数与曲线参考线。"""
+        config.set_unit(unit)
+        self.control.set_unit(unit)
+        self.monitor.set_unit(unit)
+        self.monitor.set_targets(self.control.raw_targets())
+
     def _on_continuous(self, on: bool) -> None:
         if on:
             self.send_timer.setInterval(self.control.period())
@@ -277,7 +286,7 @@ class MainWindow(QMainWindow):
 
     # ---------- 关闭 ----------
     def _save_state(self) -> None:
-        config.set_targets(self.control.raw_targets())
+        config.set_targets(self.control.raw_targets_erpm())
         config.set_enabled(self.control.enabled())
         config.set_period(self.control.period())
         config.save()

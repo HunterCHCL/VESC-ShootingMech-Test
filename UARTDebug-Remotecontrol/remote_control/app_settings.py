@@ -11,7 +11,8 @@ exe 同级目录），用户可直接查看 / 手动修改 / 备份 / 迁移。
       "control": { "period", "wheel_step[2]", "forward_only[2]", "sync[2]" },
       "vesc":    { "targets": [6], "enabled": [6] },    # 六路目标 erpm 与启用
       "plot":    { "max_points", "send_interval_ms", "show_x_axis",
-                    "top_splitter_sizes", "main_splitter_sizes" }
+                    "top_splitter_sizes", "main_splitter_sizes" },
+      "display": { "unit" }                         # 显示单位：erpm / rpm
     }
 """
 from __future__ import annotations
@@ -45,6 +46,8 @@ DEFAULTS: dict[str, dict] = {
              "show_x_axis": True,
              "top_splitter_sizes": [210, 700],
              "main_splitter_sizes": [420, 200]},
+    # 显示单位 erpm / rpm：仅影响 UI 显示，发送/接收的数据始终为 ERPM（协议不变）
+    "display": {"unit": "erpm"},
 }
 
 

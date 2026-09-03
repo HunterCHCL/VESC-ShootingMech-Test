@@ -269,7 +269,7 @@ void VESC_ERPM_Ctrl(uint8_t VESC_ID,VESC_Status *vesc_status)
 	}
 	else
 	{
-		VESC_can_set_current_brake(VESC_ID,VESC_BREAK_CURRENT);
+		return;
 	}
 }
 

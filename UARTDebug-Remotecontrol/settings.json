@@ -1,7 +1,7 @@
 {
   "window": {
     "x": 102,
-    "y": 121,
+    "y": 151,
     "w": 1059,
     "h": 757,
     "maximized": false
@@ -13,8 +13,8 @@
   "control": {
     "period": 400,
     "wheel_step": [
-      500,
-      500
+      10,
+      10
     ],
     "forward_only": [
       true,
@@ -55,5 +55,8 @@
       533,
       167
     ]
+  },
+  "display": {
+    "unit": "rpm"
   }
 }

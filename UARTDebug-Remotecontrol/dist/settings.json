@@ -1,19 +1,19 @@
 {
   "window": {
-    "x": 309,
-    "y": 230,
-    "w": 980,
+    "x": 231,
+    "y": 169,
+    "w": 1304,
     "h": 760,
     "maximized": false
   },
   "serial": {
-    "last_port": "",
+    "last_port": "COM9",
     "baud": 115200
   },
   "control": {
     "period": 200,
     "wheel_step": [
-      500,
+      100,
       500
     ],
     "forward_only": [
