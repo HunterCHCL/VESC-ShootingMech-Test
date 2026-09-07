@@ -1,6 +1,6 @@
 Dependencies for Project 'VESC-ShootingMech-Test', Target 'VESC-ShootingMech-Test': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\Compiler_5.06u7
-F (startup_stm32f407xx.s)(0x6A92E527)(--cpu Cortex-M4.fp.sp -g --apcs=interwork -I ../Drivers/CMSIS/Include-I.\RTE\_VESC-ShootingMech-Test-I"D:\RM Main softwares\Keil5\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include"--pd "__UVISION_VERSION SETA 541" --pd "STM32F407xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f407xx.lst --xref -o vesc-shootingmech-test\startup_stm32f407xx.o --depend vesc-shootingmech-test\startup_stm32f407xx.d)
+F (startup_stm32f407xx.s)(0x6A9ACE00)(--cpu Cortex-M4.fp.sp -g --apcs=interwork -I ../Drivers/CMSIS/Include-I.\RTE\_VESC-ShootingMech-Test-I"D:\RM Main softwares\Keil5\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include"--pd "__UVISION_VERSION SETA 541" --pd "STM32F407xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f407xx.lst --xref -o vesc-shootingmech-test\startup_stm32f407xx.o --depend vesc-shootingmech-test\startup_stm32f407xx.d)
 F (../Core/Src/main.c)(0x6A92D59A)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../UserLib/VESC -I ../UserLib/UARTDebug-I.\RTE\_VESC-ShootingMech-Test-I"D:\RM Main softwares\Keil5\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include"-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o vesc-shootingmech-test\main.o --omf_browse vesc-shootingmech-test\main.crf --depend vesc-shootingmech-test\main.d)
 I (../Core/Inc/main.h)(0x6A915337)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x69F40C80)
@@ -127,7 +127,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x69F40C80)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x69F40C80)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h)(0x69F40C4A)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x69F40C4A)
-F (../Core/Src/can.c)(0x6A92E524)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../UserLib/VESC -I ../UserLib/UARTDebug-I.\RTE\_VESC-ShootingMech-Test-I"D:\RM Main softwares\Keil5\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include"-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o vesc-shootingmech-test\can.o --omf_browse vesc-shootingmech-test\can.crf --depend vesc-shootingmech-test\can.d)
+F (../Core/Src/can.c)(0x6A9ACDFA)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../UserLib/VESC -I ../UserLib/UARTDebug-I.\RTE\_VESC-ShootingMech-Test-I"D:\RM Main softwares\Keil5\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include"-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o vesc-shootingmech-test\can.o --omf_browse vesc-shootingmech-test\can.crf --depend vesc-shootingmech-test\can.d)
 I (../Core/Inc/can.h)(0x6A915336)
 I (../Core/Inc/main.h)(0x6A915337)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x69F40C80)
@@ -1114,7 +1114,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x69F40C80)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x69F40C80)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x69F40C80)
 I (..\UserLib\UARTDebug\UARTDebug.h)(0x6A92E7FE)
-I (../UserLib/VESC/VESC.h)(0x6A967AC2)
+I (../UserLib/VESC/VESC.h)(0x6A993657)
 I (../Core/Inc/can.h)(0x6A915336)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h)(0x69F40C4A)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x69F40C4A)
@@ -1128,10 +1128,10 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x69F40C4A)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x69F40C4A)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x69F40C4A)
 F (..\UserLib\UARTDebug\UARTDebug.h)(0x6A92E7FE)()
-F (..\UserLib\VESC\VESC.h)(0x6A967AC2)()
-F (..\UserLib\VESC\VESC.c)(0x6A96796C)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../UserLib/VESC -I ../UserLib/UARTDebug-I.\RTE\_VESC-ShootingMech-Test-I"D:\RM Main softwares\Keil5\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include"-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o vesc-shootingmech-test\vesc.o --omf_browse vesc-shootingmech-test\vesc.crf --depend vesc-shootingmech-test\vesc.d)
+F (..\UserLib\VESC\VESC.h)(0x6A993657)()
+F (..\UserLib\VESC\VESC.c)(0x6A9ADAC1)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../UserLib/VESC -I ../UserLib/UARTDebug-I.\RTE\_VESC-ShootingMech-Test-I"D:\RM Main softwares\Keil5\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include"-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o vesc-shootingmech-test\vesc.o --omf_browse vesc-shootingmech-test\vesc.crf --depend vesc-shootingmech-test\vesc.d)
 I (D:\RM Main softwares\Keil5\ARM\Compiler_5.06u7\include\math.h)(0x5E8E3CC2)
-I (..\UserLib\VESC\VESC.h)(0x6A967AC2)
+I (..\UserLib\VESC\VESC.h)(0x6A993657)
 I (../Core/Inc/can.h)(0x6A915336)
 I (../Core/Inc/main.h)(0x6A915337)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x69F40C80)

@@ -47,7 +47,7 @@ uint8_t can_transmit_eid(uint32_t id, const uint8_t *data, uint32_t len) {
     txHeader.DLC = len;
 	while (HAL_CAN_GetTxMailboxesFreeLevel(&VESC_CAN_PORT) == 0)
     {                                                         
-        osDelay(1);
+        osDelay(10);
         if (times++ >= 5)
         {
             times = 0;

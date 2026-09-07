@@ -1,20 +1,23 @@
 {
   "window": {
     "x": 231,
-    "y": 169,
+    "y": 199,
     "w": 1304,
     "h": 760,
-    "maximized": false
+    "maximized": true
   },
   "serial": {
-    "last_port": "COM9",
+    "last_port": "COM6",
     "baud": 115200
+  },
+  "appearance": {
+    "theme": "system"
   },
   "control": {
     "period": 200,
     "wheel_step": [
-      100,
-      500
+      50,
+      50
     ],
     "forward_only": [
       true,
@@ -55,5 +58,8 @@
       420,
       200
     ]
+  },
+  "display": {
+    "unit": "rpm"
   }
 }
