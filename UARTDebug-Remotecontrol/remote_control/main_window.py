@@ -31,11 +31,18 @@ class MainWindow(QMainWindow):
         self.link = SerialLink(self)
         self._tx = 0
         self._rx = 0
+        self._rx_at_open = 0       # 打开串口时的 RX 计数（无数据自检的基准）
         self._conn_msg = "未连接"
 
         # 持续发送定时器
         self.send_timer = QTimer(self)
         self.send_timer.timeout.connect(self._send_targets)
+
+        # 无数据自检定时器：打开串口后若迟迟收不到任何帧，说明链路实际不通
+        # （选错设备 / 波特率不符 / MCU 未上电），主动提示而非静默显示"已连接"
+        self._rx_check = QTimer(self)
+        self._rx_check.setInterval(1000)
+        self._rx_check.timeout.connect(self._check_no_rx)
 
         # 面板
         self.control = ControlPanel()
@@ -149,10 +156,19 @@ class MainWindow(QMainWindow):
     def _restore_port(self) -> None:
         self._refresh_ports()
         last = config.get_last_port()
-        if last:
-            idx = self.combo_port.findText(last)
-            if idx >= 0:
-                self.combo_port.setCurrentIndex(idx)
+        if not last:
+            return
+        idx = self.combo_port.findText(last)
+        if idx >= 0:
+            self.combo_port.setCurrentIndex(idx)
+        else:
+            # 上次的串口在当前机器上不存在：COM 号会随 USB 端口/机器变化。
+            # 此处不静默改选其它端口（可能连到别的设备），而是明确提示用户
+            # 手动确认，避免"连上了却收发不对"。
+            self.lbl_status.setText(
+                f"上次使用的 {last} 在本机不存在，请确认串口")
+            self.lbl_status.setStyleSheet(
+                "color:#e67e22;font-weight:bold;")
 
     def _port(self) -> str:
         return self.combo_port.currentText()
@@ -171,9 +187,27 @@ class MainWindow(QMainWindow):
         if not port or port.startswith("("):
             self.lbl_status.setText("请选择串口")
             return
+        self._rx_at_open = self._rx      # 记录打开时的接收计数，作为自检基准
+        self._rx_check.start()
         self.link.open(port, int(self.combo_baud.currentText()))
         config.set_last_port(port)
         config.set_baud(int(self.combo_baud.currentText()))
+
+    def _check_no_rx(self) -> None:
+        """已连接但长时间收不到任何帧时给出明确提示。
+
+        MCU 每 100ms 回传一帧，正常情况下 1 秒内必有数据。持续无数据说明
+        链路实际不通——最常见原因是选错了串口（COM 号因机器而异）或波特率
+        不匹配。此时不报错（串口确实打开了），但必须让用户看见。
+        """
+        if not self.link.is_open:
+            return
+        if self._rx != self._rx_at_open:
+            return                  # 有数据回来，不再需要提示
+        self.lbl_status.setText(
+            f"⚠ 已打开 {self._port()} 但收不到数据："
+            "请确认设备已上电、串口选对、波特率一致")
+        self.lbl_status.setStyleSheet("color:#e67e22;font-weight:bold;")
 
     def _on_link_status(self, connected: bool, msg: str) -> None:
         self._conn_msg = msg
@@ -187,6 +221,7 @@ class MainWindow(QMainWindow):
         if not connected:
             # 断开：停止持续发送，MCU 看门狗 1s 后自动清零目标
             self.send_timer.stop()
+            self._rx_check.stop()
             self.control.set_continuous(False)
 
     def _on_write_blocked(self, blocked: bool) -> None:

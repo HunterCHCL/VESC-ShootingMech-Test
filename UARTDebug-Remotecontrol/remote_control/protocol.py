@@ -84,7 +84,16 @@ def parse_status(frame: bytes) -> dict:
 
 
 class FrameParser:
-    """串口字节流 -> 完整帧。自动查找帧头、校验并丢弃坏帧。"""
+    """串口字节流 -> 完整帧。自动查找帧头、校验并丢弃坏帧。
+
+    容错要点：任何无法解析的字节都会被逐个丢弃并重新寻找帧头，因此
+    线路噪声、残留半截帧、偶发位翻转都不会导致解析永久卡死。
+    """
+
+    # 缓冲区上限：正常情况下 _buf 最多残留一帧（27 字节）。若因异常
+    # 持续堆积（理论上不该发生），超过此上限说明同步已失效，直接清空重来，
+    # 避免长时间运行后内存无限增长。
+    _MAX_BUF = FRAME_MAX_LEN * 4
 
     def __init__(self) -> None:
         self._buf = bytearray()
@@ -92,6 +101,9 @@ class FrameParser:
     def feed(self, data: bytes) -> list[dict]:
         """喂入原始字节，返回解析出的帧列表（可能为空）。"""
         self._buf += data
+        # 同步失效时的兜底：缓冲区异常膨胀说明已无法找回帧头，直接丢弃
+        if len(self._buf) > self._MAX_BUF:
+            self._buf.clear()
         frames: list[dict] = []
         while True:
             frame = self._try_extract()
@@ -111,10 +123,17 @@ class FrameParser:
         # 按候选长度逐个校验，选通过的那个（短的先试，兼容当前固件 26 字节帧）
         for total in (_STATUS_LEN_CURRENT, _STATUS_LEN_FIXED, _CMD_LEN):
             if len(self._buf) < total:
-                continue
+                # 数据还不够凑出该长度的候选，等下一批再判；
+                # 此处不能丢字节，否则会把后续字节错位
+                return None
             frame = bytes(self._buf[:total])
             if checksum(frame[:-1]) != frame[-1]:
                 continue
             del self._buf[:total]
             return parse_status(frame)
+        # 三个候选长度全部校验失败：此处必须丢 1 字节重新同步。
+        # 若原地返回，缓冲区头部的帧头会永久滞留，feed() 下一轮又从同一位置
+        # 开始试探，导致解析彻底卡死（表现为"能发送但收不到任何帧"，
+        # 且连接状态仍显示已连接）。
+        self._buf.pop(0)
         return None

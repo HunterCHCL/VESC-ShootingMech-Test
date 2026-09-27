@@ -1,7 +1,7 @@
 {
   "window": {
     "x": 808,
-    "y": 376,
+    "y": 438,
     "w": 980,
     "h": 760,
     "maximized": false
@@ -9,6 +9,9 @@
   "serial": {
     "last_port": "",
     "baud": 115200
+  },
+  "appearance": {
+    "theme": "dark"
   },
   "control": {
     "period": 200,

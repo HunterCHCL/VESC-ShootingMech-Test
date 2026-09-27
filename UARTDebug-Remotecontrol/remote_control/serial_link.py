@@ -59,6 +59,13 @@ class SerialLink(QObject):
         # 后台写线程，GUI 永不卡死。
         self._ser = serial.Serial(port=port, baudrate=baud,
                                   timeout=0.2, write_timeout=self._WRITE_TIMEOUT)
+        # 丢弃驱动接收缓冲里的残留字节：上次会话遗留的半截帧、或 MCU 复位
+        # 瞬间吐出的数据。不清掉的话，这些字节会成为解析器的第一口输入，
+        # 在部分机器上（驱动缓冲行为、时序差异）导致 RX 迟迟无法同步。
+        try:
+            self._ser.reset_input_buffer()
+        except Exception:
+            pass
         rt = threading.Thread(target=self._read_loop, daemon=True)
         wt = threading.Thread(target=self._write_loop, daemon=True)
         self._read_thread = rt
