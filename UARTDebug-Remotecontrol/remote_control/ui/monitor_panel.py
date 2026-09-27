@@ -1,8 +1,11 @@
-"""数据监听页：六路实时 erpm 读数（左上）+ 实时曲线（右上）+ 滚动日志（下）。
+"""数据监听页：六路实时转速读数（左上）+ 实时曲线（右上）+ 滚动日志（下）。
 
 上半部分为左右布局：左侧紧凑读数、右侧实时曲线，二者之间用可拖动分隔条；
 上半区域与底部日志之间也用可拖动分隔条，三个区域可按需缩放。
 数据来源：MCU 每 100ms 回传的状态帧（6 × float32 erpm）。
+
+显示单位（ERPM / RPM，7 ERPM = 1 RPM）：读数 / 曲线 / 日志按当前显示单位
+换算；发送与接收的数据始终为 ERPM（协议不变）。
 """
 from __future__ import annotations
 
@@ -49,6 +52,8 @@ class MonitorPanel(QFrame):
         cell.setVerticalSpacing(4)
         cell.setContentsMargins(8, 8, 8, 8)
         self._labels: list[QLabel] = []
+        self._unit = config.get_unit()        # 当前显示单位：erpm / rpm
+        self._last_erpm: list | None = None   # 最近一帧实测（ERPM，协议单位）
         for i in range(6):
             name = QLabel(VESC_NAMES[i])
             name.setAlignment(Qt.AlignCenter)
@@ -109,7 +114,8 @@ class MonitorPanel(QFrame):
         self.log.setMaximumBlockCount(1000)
         self.log.setStyleSheet("font-family:Consolas;font-size:12px;")
         log_row = QHBoxLayout()
-        log_row.addWidget(QLabel("最近接收 (erpm×6):"))
+        self.lbl_log_header = QLabel(f"最近接收 ({self._unit}×6):")
+        log_row.addWidget(self.lbl_log_header)
         log_row.addStretch(1)
         log_row.addWidget(self.btn_clear)
         log_panel = QWidget()
@@ -136,11 +142,32 @@ class MonitorPanel(QFrame):
         self.btn_clear.clicked.connect(self.clear)
 
     def update_erpm(self, erpm: list) -> None:
-        """刷新读数 + 追加曲线与日志。"""
-        for lbl, v in zip(self._labels, erpm):
+        """刷新读数 + 追加曲线与日志（按当前显示单位换算）。"""
+        self._last_erpm = list(erpm)
+        self._render(erpm)
+
+    def _render(self, erpm: list) -> None:
+        """按当前显示单位渲染读数、曲线与日志（None 显示「—」）。"""
+        disp = [config.to_display(v, self._unit) if v is not None else None
+                for v in erpm]
+        for lbl, v in zip(self._labels, disp):
             lbl.setText(_fmt(v))
-        self.plot.push(erpm)
-        self.log.appendPlainText(",".join(_fmt(v) for v in erpm))
+        self.plot.push(disp)
+        self.log.appendPlainText(",".join(_fmt(v) for v in disp))
+
+    def set_unit(self, unit: str) -> None:
+        """切换显示单位：更新表头，按新单位重绘读数；清空旧单位的曲线/日志。"""
+        if unit == self._unit:
+            return
+        self._unit = unit
+        self.lbl_log_header.setText(f"最近接收 ({unit}×6):")
+        self.plot.clear()
+        self.log.clear()
+        if self._last_erpm is not None:
+            self._render(self._last_erpm)
+        else:
+            for lbl in self._labels:
+                lbl.setText("—")
 
     def set_targets(self, targets: list) -> None:
         """更新曲线上的设定转速参考线（来自控制页目标值）。"""

@@ -1,23 +1,33 @@
 {
   "window": {
+<<<<<<< HEAD
     "x": 808,
     "y": 438,
     "w": 980,
+=======
+    "x": 231,
+    "y": 199,
+    "w": 1304,
+>>>>>>> d780999b229d3a4e99d7048bda90446229a37edc
     "h": 760,
-    "maximized": false
+    "maximized": true
   },
   "serial": {
-    "last_port": "",
+    "last_port": "COM6",
     "baud": 115200
   },
   "appearance": {
+<<<<<<< HEAD
     "theme": "dark"
+=======
+    "theme": "system"
+>>>>>>> d780999b229d3a4e99d7048bda90446229a37edc
   },
   "control": {
     "period": 200,
     "wheel_step": [
-      500,
-      500
+      50,
+      50
     ],
     "forward_only": [
       true,
@@ -58,5 +68,8 @@
       420,
       200
     ]
+  },
+  "display": {
+    "unit": "rpm"
   }
 }

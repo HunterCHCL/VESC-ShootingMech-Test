@@ -24,6 +24,45 @@ def set_baud(baud: int) -> None:
     app_settings.set("serial", "baud", baud)
 
 
+# ---- 显示单位（ERPM / RPM）：7 ERPM = 1 RPM ----
+# 仅影响 UI 显示；发送与接收的数据始终为 ERPM（通信协议不变）。
+ERPM_PER_RPM = 7
+
+
+def get_unit() -> str:
+    """当前显示单位：'erpm' 或 'rpm'。"""
+    u = str(app_settings.get("display", "unit", "erpm")).lower()
+    return "rpm" if u == "rpm" else "erpm"
+
+
+def set_unit(unit: str) -> None:
+    """设置显示单位（只接受 'erpm' / 'rpm'，其它回退 erpm）。"""
+    unit = "rpm" if str(unit).lower() == "rpm" else "erpm"
+    app_settings.set("display", "unit", unit)
+
+
+def is_rpm_display() -> bool:
+    """当前是否以 RPM 显示。"""
+    return get_unit() == "rpm"
+
+
+def to_display(erpm: float, unit: str | None = None) -> float:
+    """ERPM → 显示单位：RPM 模式下除以 ERPM_PER_RPM，否则原值返回。
+
+    unit 缺省时读当前设置；传参时按给定单位换算（用于单位切换过程）。
+    """
+    if (unit or get_unit()) == "rpm":
+        return erpm / ERPM_PER_RPM
+    return erpm
+
+
+def from_display(value: float, unit: str | None = None) -> float:
+    """显示单位 → ERPM：RPM 模式下乘以 ERPM_PER_RPM，否则原值返回。"""
+    if (unit or get_unit()) == "rpm":
+        return value * ERPM_PER_RPM
+    return value
+
+
 def get_period() -> int:
     """持续发送周期（ms）。"""
     return int(app_settings.get("control", "period", 200))
@@ -89,7 +128,7 @@ def set_main_splitter_sizes(values: list[int]) -> None:
 
 
 def get_targets() -> list[float]:
-    """六路目标 erpm（原始 spinbox 值）。"""
+    """六路目标 erpm（规范存储单位，与当前显示单位无关）。"""
     return [float(x) for x in app_settings.get("vesc", "targets", [0.0] * 6)]
 
 

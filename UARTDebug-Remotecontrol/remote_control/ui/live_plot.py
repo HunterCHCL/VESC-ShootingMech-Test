@@ -9,8 +9,8 @@
 
 用法：
     plot = LivePlot(channels=6, names=[...])
-    plot.push([erpm0, erpm1, ...])   # 每次收到一帧调用一次
-    plot.set_targets([...])          # 更新设定转速参考线
+    plot.push([v0, v1, ...])       # 每次收到一帧调用一次（当前显示单位）
+    plot.set_targets([...])        # 更新设定转速参考线（同显示单位）
     plot.clear()
 """
 from __future__ import annotations
